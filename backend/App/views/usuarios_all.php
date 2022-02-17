@@ -68,7 +68,7 @@
         </div>
     </nav>
     <!-- End Navbar -->
-    <div class="container-fluid py-3 col-md-12">
+    <div class="container-fluid py-3 col-md-12 mb-5">
         
         <div class="card card-body" id="profile">
             <div class="row justify-content-center align-items-center">

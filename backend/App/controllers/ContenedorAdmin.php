@@ -270,7 +270,11 @@ html;
     public function footer($extra = ''){
         $footer =<<<html
 
-        <footer class="footer pt-0">
+        <footer class="footer pt-0" style="position: fixed;
+        width: -webkit-fill-available;
+        bottom: 0px;
+        margin-top: 20px;
+        z-index: -1;">
                 <div class="container-fluid">
                     <div class="row align-items-center justify-content-lg-between">
                         <div class="col-lg-6 mb-lg-0 mb-4">
