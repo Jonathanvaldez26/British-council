@@ -35,7 +35,7 @@
 
                 <!-- Card Basic Info -->
                 <div class="login_part_form_iner btn-qr" id="basic-info">
-                <h3 id="this-cert">This certificate has been issued by our system with the following </h3>
+                <h3 id="this-cert">This certificate has been issued by our system with the following data:</h3>
                     <br><br><br>
                     <?php echo $pdf_constancia; ?>
                    

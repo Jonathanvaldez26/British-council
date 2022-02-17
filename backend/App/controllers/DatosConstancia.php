@@ -83,7 +83,10 @@ class DatosConstancia{
 
       $pdf_constancia =<<<html
 
-      <h1 id="data_name">Name:
+      <h1 id="data_name">
+      Date: {$constancias[0]['fecha']}
+      <br>
+      Name:
       {$constancias[0]['nombre']} {$constancias[0]['apellido_p']} {$constancias[0]['apellido_m']}
       <br>Event: BBELT 2022
       </h1>
