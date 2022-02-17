@@ -216,9 +216,10 @@
             event.preventDefault();
 
             var valueButton = $(this).val();
+            $(this).hide();
            
             $.ajax({
-                url: "/Home/generarQr",
+                url: "/Home/generaterQr",
                 type: "POST",
                 data: {id_constancia:valueButton},
                 cache: false,
@@ -248,6 +249,8 @@
                    $("#a-download"+valueButton).attr("href", respuesta.ruta_constancia); 
                    $("#a-download"+valueButton).attr("download","");
                    //$("#btn-download-"+valueButton).attr("value",respuesta.code);
+
+                   
                   
                 },
                 error: function(respuesta) {
@@ -256,6 +259,96 @@
 
             });
         });
+
+        $(".btn_ver").on("click", function(event){
+            event.preventDefault();
+
+            var valueButton = $(this).val();
+           
+            $.ajax({
+                url: "/Home/verQr",
+                type: "POST",
+                data: {code:valueButton},
+                cache: false,
+                dataType: "json",
+                // contentType: false,
+                // processData: false,
+                beforeSend: function() {
+                    console.log("Procesando....");
+
+                },
+                success: function(respuesta) {
+                    //console.log(respuesta);
+                    $("#img_qr").attr("src",respuesta.src);
+                    $("#title_constancia").html(respuesta.nombre_constancia);
+                    $("#btn_ruta_qr").attr("href",respuesta.url_qr);
+                    $("#btn_ruta_qr").removeClass("d-none");
+
+                    //boton descargar
+                   $("#btn-download"+respuesta.id_constancia).attr("data-id",respuesta.id_constancia);
+                   $("#btn-download"+respuesta.id_constancia).attr("data-value",respuesta.code);
+                   $("#btn-download"+respuesta.id_constancia).removeClass("d-none");
+                   $("#btn-download"+respuesta.id_constancia).attr("href", respuesta.ruta_constancia);                   
+                   //$("#btn-download"+valueButton).attr("download","");
+                   // $("#btn-download"+valueButton).attr("target", "_blank");
+
+                   // a de descargar pdf
+                   $("#a-download"+respuesta.id_constancia).attr("href", respuesta.ruta_constancia); 
+                   $("#a-download"+respuesta.id_constancia).attr("download","");
+                   //$("#btn-download-"+valueButton).attr("value",respuesta.code);
+                  
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+
+            });
+        });
+
+        // $(".btn_qr").on("click", function(event){
+        //     event.preventDefault();
+
+        //     var valueButton = $(this).val();
+           
+        //     $.ajax({
+        //         url: "/Home/generarQr",
+        //         type: "POST",
+        //         data: {id_constancia:valueButton},
+        //         cache: false,
+        //         dataType: "json",
+        //         // contentType: false,
+        //         // processData: false,
+        //         beforeSend: function() {
+        //             console.log("Procesando....");
+
+        //         },
+        //         success: function(respuesta) {
+        //             //console.log(respuesta);
+        //             $("#img_qr").attr("src",respuesta.src);
+        //             $("#title_constancia").html(respuesta.nombre_constancia);
+        //             $("#btn_ruta_qr").attr("href",respuesta.url_qr);
+        //             $("#btn_ruta_qr").removeClass("d-none");
+
+        //             //boton descargar
+        //            $("#btn-download"+valueButton).attr("data-id",respuesta.id_constancia);
+        //            $("#btn-download"+valueButton).attr("data-value",respuesta.code);
+        //            $("#btn-download"+valueButton).removeClass("d-none");
+        //            $("#btn-download"+valueButton).attr("href", respuesta.ruta_constancia);                   
+        //            //$("#btn-download"+valueButton).attr("download","");
+        //            // $("#btn-download"+valueButton).attr("target", "_blank");
+
+        //            // a de descargar pdf
+        //            $("#a-download"+valueButton).attr("href", respuesta.ruta_constancia); 
+        //            $("#a-download"+valueButton).attr("download","");
+        //            //$("#btn-download-"+valueButton).attr("value",respuesta.code);
+                  
+        //         },
+        //         error: function(respuesta) {
+        //             console.log(respuesta);
+        //         }
+
+        //     });
+        // });
 
 
 

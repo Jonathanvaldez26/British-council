@@ -300,6 +300,10 @@ html;
           });//fin del btnAdd
 
         });//fin del document.ready
+
+        if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+        }
       </script>
 html;
 
@@ -545,6 +549,14 @@ html;
     }
 
     public function usuarioAdd(){
+
+      $extraFooter =<<<html
+        <script>
+        if ( window.history.replaceState ) {
+          window.history.replaceState( null, null, window.location.href );
+        }
+      </script>
+html;
 
 
       $usuario = new \stdClass();
