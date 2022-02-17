@@ -91,7 +91,12 @@
                 </div>
             </div>
         </div>
-        <div class=" banner_img" style="padding-left: 7.5rem!important;}">
+        <style>
+            .banner_part .banner_img {
+                right: -8%;
+            }
+        </style>
+        <div class=" banner_img" >
             <img src="../../assets_2/img/registration-bg.jpg" alt="#" class="img-fluid">
             <img src="../../assets_2/img/banner_pattern.png " alt="#" class="pattern_img img-fluid" hidden>
         </div>

@@ -1,117 +1,96 @@
+
 <?php echo $header; ?>
 <body>
-    <!--::header part start::-->
-    <header class="main_menu home_menu">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-12">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="/">
-                            <img id="logo-bbelt" src="../../assets_2/img/logo_bbelt.png" alt="logo">  
-                        </a>
-                        <p><?php echo $_SESSION['nombre']; ?></p>
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                            aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="menu_icon"><i class="fas fa-bars"></i></span>
-                        </button>
-
-                        <div class="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/">Home</a>
-                                </li>
-                                <li class="nav-item d-flex align-items-center">
-                                    <a href="/Login/cerrarSession" class="nav-link text-body font-weight-bold px-0">
-                                        <i class="fa fa-power-off me-sm-1"></i>
-                                        <span class="d-sm-inline">Logout</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="hearer_icon d-flex align-items-center">
-                            <a id="search_1" href="javascript:void(0)"><i class=""></i></a>
-                            <a href="cart.html">
-                                <i class=""></i>
-                            </a>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </div>
-        <div class="search_input" id="search_input_box">
-            <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                    <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </form>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
+    
 
     <!-- banner part start-->
-    <section id="content" class="banner_part">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-4 col-sm-12">
-                    <div class="banner_text">
-                        <div class="banner_text_iner">
-                            <h3>
-                                <?php echo $data_constancia['nombre_constancia'] ?>
-                            </h3>
-                            <!-- <p>lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum </p>
-                            <?php //var_dump($data_constancia); ?> -->
-                           
-                           
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-8 col-sm-12">
-                <?php echo $pdf_constancia; ?>
-                </div>
-            </div>
-        </div>
-        
-    </section>
+
     <!-- banner part start-->
 
     
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg "> 
+    
+    <div id="logos-con">
+        <a href="/">
+            <img id="logo-bbelt-0" src="../../assets_2/img/logo_bbelt.png" alt="logo">
+        </a>
+
+        <a href="/">
+            <img id="logo-bbelt-2" src="../../assets_2/img/logo_1.png" alt="logo">
+        </a>
+
+        <a href="/">
+            <img id="logo-bbelt-3" src="../../assets_2/img/logo_2.png" alt="logo">
+        </a>
+    </div>
+
+    <div class="container-fluid py-0">
+        <div class="row mt-4">
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-8 mt-lg-3 mt-6 card-form">
+
+                <!-- <input type="text" class="form-control" id="name" name="name" value=" "> -->
 
 
-    <!--::footer_part start::-->
-    <footer class="footer_part">
-
-        <div class="footer_iner">
-            <div class="container">
-                <div class="row justify-content-between align-items-center">
-                    <div class="col-lg-8">
-                    </div>
+                <!-- Card Basic Info -->
+                <div class="login_part_form_iner btn-qr" id="basic-info">
+                <h3>This certificate has been issued by our system with the following </h3>
+                    <br><br><br>
+                    <?php echo $pdf_constancia; ?>
+                   
                 </div>
             </div>
         </div>
+        <div class="col-lg-2">
+        </div>
+    </div>
 
-        
-        <div class="copyright_part">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-12">
-                        <div class="copyright_text">
-                            <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://grupolahe.com" target="_blank">Grupo LAHE</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
-                            <div class="copyright_link">
-                                <a href="#">Turms & Conditions</a>
-                                <a href="#">FAQ</a>
-                            </div>
+    </div>
+    <?php echo $footer; ?>
+</main>
+
+
+<!-- <div login_part_form_iner>
+                        <div class="btn-qr">
+                            <form class="row contact_form" method="POST" enctype="multipart/form-data" id="form_confirm_datos">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <label class="form-label">Name</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="required" onfocus="focused(this)" onfocusout="defocused(this)" readonly="readonly" value="<?= $usuario['nombre'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Surname</label>
+                                        <div class="input-group">
+                                            <input id="primer_apellido_" name="primer_apellido_" class="form-control" type="text" placeholder="Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" readonly="readonly" value="<?= $usuario['apellido_p'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <label class="form-label">Second Surname</label>
+                                        <div class="input-group">
+                                            <input id="segundo_apellido_" name="segundo_apellido_" class="form-control" type="text" placeholder="Second Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" readonly="readonly" value="<?= $usuario['apellido_m'] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <br>
+                                        <label class="form-label">Email Registered</label>
+                                        <div class="input-group">
+                                            <input id="email_" name="email_" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" readonly="readonly" value="<?= $usuario['usuario'] ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!--::footer_part end::-->
+
+                        <br>
+
+                        <div class="btn-qr">
+                                <button class="btn_1 btn-primary btn_confirm" id="btn-confirm">Confirm</button>
+                                <a href="/Login" class="btn_danger ">Cancelar</a>
+                        </div>
+                    </div> -->
 </body>
 
 <?php echo $footer; ?>

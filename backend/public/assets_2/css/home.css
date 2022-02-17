@@ -22,6 +22,10 @@
     padding: 50px 0;
 }
 
+.footer_part .footer_iner2 {
+    padding: 2% 0;
+}
+
 .btn_1{
     background-color: #24085E;
     border-color: #24085E;
@@ -66,6 +70,45 @@ i.fa.fa-power-off.me-sm-1{
 
 #logo-bbelt{
     width: 60%;
+    padding-top: 5px;
+}
+
+#logo-bbelt-0{
+    width: 13%;
+    padding-top: 5px;
+    margin-bottom: 5%;
+}
+
+#logo-bbelt-2{
+    width: 15%;
+    padding-top: 5px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+}
+
+#logo-bbelt-3{
+    width: 10%;
+    padding-top: 5px;
+    margin-bottom: 5%;
+}
+
+#logos-con{
+    text-align: center;
+    margin-top: 2%;
+}
+
+#con-pub{
+    background-image: url("../../assets_2/img/bg.png");
+}
+
+.banner_part {
+    display: block;
+    margin-top: 5%;
+}
+
+#data_name{
+    font-size: x-large;
 }
 
 @media (min-width: 992px){

@@ -69,14 +69,13 @@ sql;
     public static function getByCode($code){
       $mysqli = Database::getInstance();
       $query=<<<sql
-SELECT c.id_constancia, c.nombre as nombre_constancia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, ua.nombre, ua.apellido_p, ua.apellido_m
-FROM constancia c 
-INNER JOIN utilerias_administradores ua ON (ua.administrador_id = c.id_administrador)
-WHERE c.code = '$code';
+      SELECT * FROM constancia INNER JOIN utilerias_administradores ON id_administrador = administrador_id  WHERE code = '$code';
 
 sql;
       return $mysqli->queryAll($query);
     }
+
+
     
 
     public static function updateQrRute($constancia){

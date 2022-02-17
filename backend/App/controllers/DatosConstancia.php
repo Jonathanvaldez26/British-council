@@ -8,22 +8,12 @@ use \App\controllers\Contenedor;
 use \Core\Controller;
 use \App\models\Constancia AS ConstanciaDao;
 
-class DatosConstancia extends Controller{
+class DatosConstancia{
 
     private $_contenedor;
 
-    function __construct(){
-        parent::__construct();
-        $this->_contenedor = new Contenedor;
-        View::set('header',$this->_contenedor->header());
-        View::set('footer',$this->_contenedor->footer());
-    }
-
-    public function getUsuario(){
-      return $this->__usuario;
-    }
-
-    public function datos($code) {
+    public function datos($code) {  
+ 
 
       $extraHeader =<<<html
         <style>
@@ -91,16 +81,20 @@ class DatosConstancia extends Controller{
       
       $constancias = ConstanciaDao::getByCode($code);
 
-
       $pdf_constancia =<<<html
 
-      <div class="card p-3">
+      <h1 id="data_name">Name:
+      {$constancias[0]['nombre']} {$constancias[0]['apellido_p']} {$constancias[0]['apellido_m']}
+      <br>Event: BBELT 2022
+      </h1>
+
+      <!-- div class="card p-3">
             <div class="card-body d-flex flex-column justify-content-center text-center">
         
               <iframe src="/PDF/{$constancias[0]['ruta_constancia']}" style="width:100%; height:460px;" frameborder="0" >
               </iframe>
             </div>
-      </div>
+      </div 
 html;
   
       //var_dump($constancias);
@@ -113,8 +107,8 @@ html;
       View::set('pdf_constancia',$pdf_constancia);
       View::set('data_constancia',$constancias[0]);
       View::render("datos_constancia");
-
-      
     
-    }
+    }   
+    
+  
 }

@@ -66,6 +66,8 @@ html;
     return $header.$extra.$menu;
     }
 
+    
+
     public function footer($extra = ''){
         $footer =<<<html
 
