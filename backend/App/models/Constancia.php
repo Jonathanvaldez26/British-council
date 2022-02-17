@@ -18,7 +18,7 @@ class Constancia{
   public static function insert($empresa){
     $mysqli = Database::getInstance(1);
     $query=<<<sql
-      INSERT INTO constancia VALUES(null, :id_administrador, :code, :nombre, NOW(), :ruta_constancia, :ruta_qr, 0)
+      INSERT INTO constancia VALUES(null, :id_administrador, :code, :nombre, NOW(), :ruta_constancia, :ruta_qr, 0, 0)
     sql;
 
     $parametros = array(
@@ -43,7 +43,7 @@ class Constancia{
   public static function getByIdAdmin($user){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT id_constancia, nombre, fecha, code, ruta_qr, ruta_constancia  FROM constancia where id_administrador = $user and status = 1;
+      SELECT id_constancia, nombre, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_administrador = $user and status = 1;
       sql;
       return $mysqli->queryAll($query);
     }
@@ -69,14 +69,24 @@ sql;
     public static function getByCode($code){
       $mysqli = Database::getInstance();
       $query=<<<sql
+SELECT c.id_constancia, c.nombre as nombre_constancia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, c.generada, ua.nombre, ua.apellido_p, ua.apellido_m
+FROM constancia c 
+INNER JOIN utilerias_administradores ua ON (ua.administrador_id = c.id_administrador)
+WHERE c.code = '$code';
+
+sql;
+      return $mysqli->queryAll($query);
+    }
+
+    public static function getByCodeData($code){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
       SELECT * FROM constancia INNER JOIN utilerias_administradores ON id_administrador = administrador_id  WHERE code = '$code';
 
 sql;
       return $mysqli->queryAll($query);
     }
 
-
-    
 
     public static function updateQrRute($constancia){
 
@@ -85,7 +95,8 @@ sql;
       UPDATE constancia SET
       ruta_qr = :ruta_qr,
       code = :code,
-      ruta_constancia = :ruta_constancia       
+      ruta_constancia = :ruta_constancia,
+      generada = 1      
       WHERE id_constancia = :id_constancia
 sql;
         $parametros = array(

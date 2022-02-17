@@ -100,7 +100,18 @@ class Home extends Controller{
         
             $tabla= '';
             $status= '';
+            $btn_qr ='';
         foreach ($constancias as $key => $value) {
+
+            if($value['generada'] == 0){
+                $btn_qr =<<<html
+                    <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode"></span></button>
+html;
+            }else{
+                $btn_qr = <<<html
+                <button  class="btn btn-outline-primary btn_ver" value="{$value['code']}" data-id="{$value['id_constancia']}"><span class="fa fa-qrcode"></span></button>
+html;
+            }
                 
             $tabla.=<<<html
             <tr>
@@ -114,8 +125,13 @@ class Home extends Controller{
             </style>
             <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
             <td class="center" >
+<<<<<<< HEAD
+                {$btn_qr}
+                <a href="" class="btn btn-outline-success btn_download d-none" id="btn-download{$value['id_constancia']}" ><span class="fa fa-download" > Certificate</span></a>  
+=======
                 <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"> </span></button>
                 <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
+>>>>>>> 6613bb73dd9af34d3b641ba50738eb0001087f29
                 <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
             </td>
             </tr>
@@ -140,10 +156,6 @@ class Home extends Controller{
   
       //echo json_encode($constancias);
 
-
-
-
-        
         
     }
 
@@ -187,6 +199,7 @@ class Home extends Controller{
         }
         .name{
             font-family: Arial, Helvetica, sans-serif;
+            color: #4B3049;
         }
 
       </style>
@@ -237,6 +250,122 @@ html;
     }
 
 
+    public function generaterQr(){
+       
+        $id_constancia = $_POST['id_constancia'];
+        $user_id = $_SESSION['administrador_id'];
+
+        //Eliminar los archivos del servidor
+        //$this->deleteFiles($id_constancia);
+      
+
+        $codigo_rand = $this->generateRandomString();
+
+        $config = array(
+            'ecc' => 'H',    // L-smallest, M, Q, H-best
+            'size' => 12,    // 1-50
+            'dest_file' => '../public/qrs/'.$codigo_rand.'.png',
+            'quality' => 90,
+            'logo' => 'logo.jpg',
+            'logo_size' => 100,
+            'logo_outline_size' => 20,
+            'logo_outline_color' => '#FFFF00',
+            'logo_radius' => 15,
+            'logo_opacity' => 100,
+          );
+    
+          // Contenido del código QR
+          $data = 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand;
+    
+          // Crea una clase de código QR
+          $oPHPQRCode = new PHPQRCode();
+    
+          // establecer configuración
+          $oPHPQRCode->set_config($config);
+    
+          // Crea un código QR
+          $qrcode = $oPHPQRCode->generate($data);
+    
+          $url = explode('/', $qrcode );
+          $src = $url['0'].'/'.$url['2'].'/'.$url['3'];
+
+          $documento = new \stdClass();
+      
+
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $documento->_ruta_qr = $src;
+            $documento->_ruta_constancia = '../PDF/'.$codigo_rand.'.pdf';
+            $documento->_id_constancia = $id_constancia;
+            $documento->_code = $codigo_rand;
+            
+            
+            $id = ConstanciaDao::updateQrRute($documento);
+
+            if ($id) {
+              $constancia = ConstanciaDao::getByCode($codigo_rand);
+
+              $this->generarPDF($constancia[0]);
+              
+                $data = [
+                    'status' => 'success',
+                    'src' => $src,
+                    'nombre_constancia' => $constancia[0]['nombre_constancia'],
+                    'ruta_constancia' => $constancia[0]['ruta_constancia'],
+                    'code' => $constancia[0]['code'],
+                    'id_constancia' => $constancia[0]['id_constancia'],
+                    'url_qr' => 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand,
+                    'status_generada' => 1
+
+                ];
+                //echo 'success';
+
+            } else {
+                $data = [
+                    'status' => 'fail'
+                    
+                ];
+                //echo 'fail';
+            }
+        } else {
+            $data = [
+                'status' => 'fail REQUEST'
+                
+            ];
+            //echo 'fail REQUEST';
+        }
+     
+          
+          // Mostrar código QR
+          //$imagen = '<img src="'.$src.'">';
+         //echo $src;
+         echo json_encode($data);
+    }
+
+    public function verQr(){
+       
+        $code = $_POST['code'];
+        $user_id = $_SESSION['administrador_id'];
+
+        //Eliminar los archivos del servidor
+        //$this->deleteFiles($id_constancia);
+      
+        $constancia = ConstanciaDao::getByCode($code);
+              
+                $data = [
+                    'status' => 'success',
+                    'src' => $constancia[0]['ruta_qr'],
+                    'nombre_constancia' => $constancia[0]['nombre_constancia'],
+                    'ruta_constancia' => $constancia[0]['ruta_constancia'],
+                    'code' => $constancia[0]['code'],
+                    'id_constancia' => $constancia[0]['id_constancia'],
+                    'url_qr' => 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$constancia[0]['code'],
+                    'status_generada' => 1
+
+                ];
+          
+         echo json_encode($data);
+    }
     
     public function generarQr(){
        

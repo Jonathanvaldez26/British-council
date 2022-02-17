@@ -79,7 +79,7 @@ class DatosConstancia{
           <script src="../../assets_2/js/custom.js"></script>
   html;
       
-      $constancias = ConstanciaDao::getByCode($code);
+      $constancias = ConstanciaDao::getByCodeData($code);
 
       $pdf_constancia =<<<html
 
