@@ -107,11 +107,15 @@ class Home extends Controller{
            
             <td><h6 class="mb-0 text-sm">{$value['nombre']}</h6></td>
             
-            
+            <style>
+                .btn_qr{
+                    padding: 0px;
+                }
+            </style>
             <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
             <td class="center" >
-                <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode"></span> QR</button>
-                <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}" ><span class="fa fa-download" > Certificate</span></a>  
+                <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"> </span></button>
+                <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
                 <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
             </td>
             </tr>
