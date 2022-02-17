@@ -257,7 +257,7 @@ html;
           );
     
           // Contenido del código QR
-          $data = 'https://hardcore-jennings.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand;
+          $data = 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand;
     
           // Crea una clase de código QR
           $oPHPQRCode = new PHPQRCode();
@@ -296,7 +296,7 @@ html;
                     'ruta_constancia' => $constancia[0]['ruta_constancia'],
                     'code' => $constancia[0]['code'],
                     'id_constancia' => $constancia[0]['id_constancia'],
-                    'url_qr' => 'https://hardcore-jennings.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand
+                    'url_qr' => 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$codigo_rand
 
                 ];
                 //echo 'success';
