@@ -177,9 +177,12 @@ class Home extends Controller{
 
         .spacer{
             margin-left: 7px;
-            padding-top: 400px!important;
+            padding-top: 450px!important;
             text-align: center;
     
+        }
+        .name{
+            font-family: Arial, Helvetica, sans-serif;
         }
 
       </style>
@@ -189,8 +192,7 @@ $tabla =<<<html
 
 <div style="page-break-inside: avoid;" class='spacer' align='center'>
 
-<h1 class='name'>{$data['nombre']}</h1>
-<h1 class='name'>{$data['apellido_p']} {$data['apellido_m']}</h1>
+<h1 class='name'>{$data['nombre']} {$data['apellido_p']} {$data['apellido_m']}</h1>
 <img class="imagen " src="{$data['ruta_qr']}"/>
 </div>
 
