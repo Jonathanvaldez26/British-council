@@ -28,14 +28,14 @@
         <div class="row mt-4">
             <div class="col-lg-2">
             </div>
-            <div class="col-lg-8 mt-lg-3 mt-6 card-form">
+            <div id="card-cons" class="col-lg-8 mt-lg-3 mt-6 card-form">
 
                 <!-- <input type="text" class="form-control" id="name" name="name" value=" "> -->
 
 
                 <!-- Card Basic Info -->
                 <div class="login_part_form_iner btn-qr" id="basic-info">
-                <h3>This certificate has been issued by our system with the following </h3>
+                <h3 id="this-cert">This certificate has been issued by our system with the following </h3>
                     <br><br><br>
                     <?php echo $pdf_constancia; ?>
                    

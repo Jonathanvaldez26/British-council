@@ -33,15 +33,6 @@
 
 .btn_1:hover{
     color: #24085E;
-}
-
-/* .btn_2{
-    background-color: #24085E;
-    border-color: #24085E;
-}
-
-.btn_2:hover{
-    color: #24085E;
 } */
 
 .btn_3{
@@ -109,6 +100,44 @@ i.fa.fa-power-off.me-sm-1{
 
 #data_name{
     font-size: x-large;
+}
+
+#thiscert{
+
+}
+
+@media (max-width: 576px) {
+    #card-cons{
+        margin: 5%;
+    }
+
+    #logo-bbelt-0{
+        width: 25%;
+        padding-top: 5px;
+        margin-bottom: 5%;
+    }
+    
+    #logo-bbelt-2{
+        width: 27%;
+        padding-top: 5px;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-bottom: 5%;
+    }
+    
+    #logo-bbelt-3{
+        width: 22%;
+        padding-top: 5px;
+        margin-bottom: 5%;
+    }
+
+    #data_name{
+        font-size: medium;
+    }
+    
+    #this-cert{
+        font-size: large;
+    }
 }
 
 @media (min-width: 992px){
