@@ -1,0 +1,75 @@
+@media (max-width: 1199px) {
+    #content{
+        margin-top: 5%;
+    }
+}
+
+.banner_part:after {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background-color: #00000000;
+    width: 196px;
+    height: 618px;
+}
+
+.btn-qr{
+    text-align: center;
+}
+
+.footer_part .footer_iner {
+    padding: 50px 0;
+}
+
+.btn_1{
+    background-color: #24085E;
+    border-color: #24085E;
+}
+
+.btn_1:hover{
+    color: #24085E;
+}
+
+/* .btn_2{
+    background-color: #24085E;
+    border-color: #24085E;
+}
+
+.btn_2:hover{
+    color: #24085E;
+} */
+
+.btn_3{
+    background-color: #fff;
+    border-color: #24085E;
+    color: #24085E;
+}
+
+.btn_3:hover{
+    color: #fff;
+    background-color: #24085E;
+}
+
+.bg-bbelt{
+    background-color: #24085E;
+}
+
+img.product_overlay.img-fluid {
+    padding-right: 15%;
+    background-color: currentColor;
+}
+
+i.fa.fa-power-off.me-sm-1{
+    margin-left: 0px;
+}
+
+#logo-bbelt{
+    width: 60%;
+}
+
+@media (min-width: 992px){
+    .navbar-expand-lg .navbar-collapse {
+        margin-left: 40%;
+    }
+}

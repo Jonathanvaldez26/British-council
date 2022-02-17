@@ -1,0 +1,66 @@
+.login_part .login_part_text, .login_part .login_part_form {
+    padding: 80px 70px;
+    /* height: 550px; */
+    /* display: table; */
+}
+
+.hide-elem.login_part_text.text-center{
+    background-image: linear-gradient(90deg, #25085e 0%, #4B3049 64%, #B08EAD 100%);
+}
+
+#home-hide{
+    color: white;
+}
+
+#home-hide:hover{
+    color: white;
+}
+
+.btn_3{
+    background-color: #fff;
+    border-color: #24085E;
+    color: #24085E;
+}
+
+.btn_3:hover{
+    color: #fff;
+    background-color: #24085E;
+}
+
+@media (min-width: 1200px){
+    .login_part .login_part_text, .login_part .login_part_form {
+        padding: 20px;
+        height: 550px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1200px){
+    .login_part .login_part_text, .login_part .login_part_form {
+        padding: 20px;
+        height: 550px;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 991px){
+    .login_part .login_part_text, .login_part .login_part_form {
+        padding: 30px;
+        height: 550px;
+    }
+}
+
+@media (max-width: 768px){
+    .hide-elem {
+        display: none;
+    }
+
+    .login_part .login_part_text, .login_part .login_part_form {
+        padding: 80px 70px;
+        /* height: 550px; */
+        display: table;
+    }
+}
+
+
+#logo-bbelt{
+    width: 60%;
+}
