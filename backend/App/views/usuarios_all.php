@@ -100,22 +100,22 @@
             </div>
         </div>
         <br>
-        <a href="/Usuarios/Add" type="button" class="btn btn-primary btn-sm">Add</a>
+        <a href="/Usuarios/Add" type="button" class="btn btn-primary btn-sm"><span class="fa fa-plus"></span> Add</a>
         <!-- <button type="button" class="btn btn-secondary btn-sm">Delete</button> -->
         <br>
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table align-items-center mb-0">
+                    <table id="usera" class="table align-items-center mb-0">
                         <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name (s)</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Surname</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Second Surname</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -130,3 +130,5 @@
 
 
 <?php echo $footer; ?>
+
+

@@ -83,7 +83,7 @@
               <div class="form-group col-6">
                   <label class="form-label">Name *</label>
                   <div class="input-group">
-                      <input id="nombre" name="nombre" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
+                      <input id="nombre" name="nombre" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" required onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
               </div>
 
