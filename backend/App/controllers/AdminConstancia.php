@@ -180,7 +180,7 @@ html;
       </script>
       html;
 
-      $usuarios = UsuarioDao::getAll();
+      $usuarios = UsuarioDao::getUserWithoutConstancy();
         $option = '';
       foreach ($usuarios as $key => $value) {
         $option .=<<<html

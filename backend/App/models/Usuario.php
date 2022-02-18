@@ -17,6 +17,14 @@ class Usuario implements Crud{
       return $mysqli->queryAll($query);
     }
 
+    public static function getUserWithoutConstancy(){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT ua.administrador_id, ua.nombre, ua.apellido_p, ua.apellido_m, ua.usuario, ua.tipo, ua.status FROM `utilerias_administradores` ua INNER JOIN `constancia` c ON id_administrador = ua.administrador_id WHERE c.status = '0' ORDER BY ua.administrador_id ASC;
+sql;
+      return $mysqli->queryAll($query);
+    }
+
     public static function insert($usuario){
 	    $mysqli = Database::getInstance(1);
       $query=<<<sql
@@ -139,7 +147,7 @@ sql;
     public static function getUser($user){
       $mysqli = Database::getInstance();
       $query =<<<sql
-      SELECT * FROM utilerias_administradores WHERE usuario LIKE '$user' 
+      SELECT * FROM utilerias_administradores WHERE usuario LIKE '$user' and
 sql;
       $dato = $mysqli->queryOne($query);
       return ($dato>=1) ? 1 : 2 ;
