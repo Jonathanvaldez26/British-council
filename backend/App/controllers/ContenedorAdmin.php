@@ -46,6 +46,7 @@ class ContenedorAdmin extends Controller{
              <!-- TEMPLATE VIEJO-->
              <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
              <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
              <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
  
  
@@ -359,13 +360,16 @@ html;
         <script>
         $(document).ready( function () {
           // $('#constanciasAll').DataTable();
-          $('#usera').DataTable({
+          $('#userAll').DataTable( {
             "drawCallback": function( settings ) {
                  $('.current').addClass("btn btn-info").removeClass("paginate_button");
                  $('.dataTables_length').addClass("m-4");
                  $('.dataTables_filter').addClass("m-4");
+                 $('input').addClass("form-control");
+                 $('select').addClass("form-control");
             }
           });
+          
           $('#constanciasAll').DataTable( {
             "drawCallback": function( settings ) {
                  $('.current').addClass("btn btn-info").removeClass("paginate_button");

@@ -114,7 +114,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
-                    <table id="constanciasAll" class="table table-striped table-bordered     align-items-center mb-0">
+                    <table id="constanciasAll" class="table table-striped table-bordered align-items-center mb-0">
                         <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
