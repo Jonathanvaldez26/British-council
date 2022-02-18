@@ -23,7 +23,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Constancy</li>
+                    <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Certificate</li>
                     <!-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark">Clientes</a></li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Empresa/">Empresas</a></li>
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Agregar</li> -->
@@ -83,7 +83,7 @@
                 <div class="col-sm-auto col-8">
                     <div class="h-100">
                         <h5 class="mb-1 font-weight-bolder col-sm-auto col-8">
-                            Constancy
+                            Certificate
                         </h5>
                         <p class="mb-0 font-weight-bold text-sm col-sm-auto col-8">
                             Registered

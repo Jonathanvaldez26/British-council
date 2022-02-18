@@ -267,69 +267,69 @@ html;
     public function edit($id){
       $extraFooter =<<<html
       <script>
-        $(document).ready(function(){
-          $.validator.addMethod("verificarRFC",
-            function(value, element) {
-              var result = false;
-              $.ajax({
-                type:"POST",
-                async: false,
-                url: "/Empresa/validarOtroRFC", // script to validate in server side
-                data: {
-                    nombre: function() {
-                      return $("#nombre").val();
-                    },
-                    id: function(){
-                      return $("#catalogo_empresa_id").val();
-                    }
-                },
-                success: function(data) {
-                    console.log("success::: " + data);
-                    result = (data == "true") ? true : false;
+        // $(document).ready(function(){
+        //   $.validator.addMethod("verificarRFC",
+        //     function(value, element) {
+        //       var result = false;
+        //       $.ajax({
+        //         type:"POST",
+        //         async: false,
+        //         url: "/Empresa/validarOtroRFC", // script to validate in server side
+        //         data: {
+        //             nombre: function() {
+        //               return $("#nombre").val();
+        //             },
+        //             id: function(){
+        //               return $("#catalogo_empresa_id").val();
+        //             }
+        //         },
+        //         success: function(data) {
+        //             console.log("success::: " + data);
+        //             result = (data == "true") ? true : false;
 
-                    if(result == true){
-                      $('#availability').html('<span class="text-success glyphicon glyphicon-ok"></span><span> Nombre disponible</span>');
-                      $('#register').attr("disabled", true);
-                    }
+        //             if(result == true){
+        //               $('#availability').html('<span class="text-success glyphicon glyphicon-ok"></span><span> Nombre disponible</span>');
+        //               $('#register').attr("disabled", true);
+        //             }
 
-                    if(result == false){
-                      $('#availability').html('<span class="text-danger glyphicon glyphicon-remove"></span>');
-                      $('#register').attr("disabled", false);
-                    }
-                }
-              });
-              // return true if username is exist in database
-              return result;
-              },
-              "<li>¡Este nombre ya está en uso. Intenta con otro!</li><li> Si no es visible en la tabla inicial, contacta a soporte técnico</li>"
-          );
-          $("#edit").validate({
-            rules:{
-              nombre:{
-                required: true
-              },
-              usuario:{
-                required: true
-              },
-              status:{
-                required: true
-              }
-            },
-            messages:{
-              nombre:{
-                required: "This field is required"
-              },
-              usuario:{
-                required: "This field is required"
-              },
-              status:{
-                required: "This field is required"
-              }
-            }
-          });//fin del jquery validate
+        //             if(result == false){
+        //               $('#availability').html('<span class="text-danger glyphicon glyphicon-remove"></span>');
+        //               $('#register').attr("disabled", false);
+        //             }
+        //         }
+        //       });
+        //       // return true if username is exist in database
+        //       return result;
+        //       },
+        //       "<li>¡Este nombre ya está en uso. Intenta con otro!</li><li> Si no es visible en la tabla inicial, contacta a soporte técnico</li>"
+        //   );
+        //   $("#edit").validate({
+        //     rules:{
+        //       nombre:{
+        //         required: true
+        //       },
+        //       usuario:{
+        //         required: true
+        //       },
+        //       status:{
+        //         required: true
+        //       }
+        //     },
+        //     messages:{
+        //       nombre:{
+        //         required: "This field is required"
+        //       },
+        //       usuario:{
+        //         required: "This field is required"
+        //       },
+        //       status:{
+        //         required: "This field is required"
+        //       }
+        //     }
+        //   });//fin del jquery validate
 
-          $("#btnCancel").click(function(){
-            window.location.href = "/Empresa/";
+        //   $("#btnCancel").click(function(){
+        //     window.location.href = "/Empresa/";
           });//fin del btnAdd
 
         });//fin del document.ready
