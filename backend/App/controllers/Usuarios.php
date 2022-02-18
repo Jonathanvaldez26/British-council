@@ -30,61 +30,11 @@ class Usuarios extends Controller{
     }
 
     public function index() {
-      $extraHeader =<<<html
-        <!DOCTYPE html>
-        <html lang="en">
-          <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/favicon.png">
-            <link rel="icon" type="image/png" href="/assets/img/favicon.png">
-            <title>
-               GRUPO LAHE
-            </title>
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-            <!-- Nucleo Icons -->
-            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-            <!-- Font Awesome Icons -->
-            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-            <!-- CSS Files -->
-            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-            <!-- TEMPLATE VIEJO-->
-            <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
-            <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
-
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
-            <title>
-              Soft UI Dashboard PRO by Creative Tim
-            </title>
-            <!--     Fonts and icons     -->
-            <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-            <!-- Nucleo Icons -->
-            <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
-            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-            <!-- Font Awesome Icons -->
-            <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-            <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
-            <!-- CSS Files -->
-            <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
-
-
-           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-            
-           <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-           <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-           <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-            <!-- TEMPLATE VIEJO-->
-        </head>
-html;
+      
       $extraFooter =<<<html
       <script>
         $(document).ready(function(){
-
+          $('#usera').DataTable();
           $("#muestra-cupones").tablesorter();
           var oTable = $('#muestra-cupones').DataTable({
                 "columnDefs": [{
@@ -156,14 +106,14 @@ html;
           if($value['status'] = 1){
               $status =<<<html
                  <span class="badge badge-pill badge-primary">
-                        Activo
+                        Activate
                  </span>   
 html;
           }elseif ($value['status'] = 2)
           {
               $status =<<<html
                  <span class="badge badge-pill badge-danger">
-                        Desactivado
+                        Deactivate
                  </span>   
 html;
           }
@@ -180,19 +130,19 @@ html;
         }
         $tabla.=<<<html
                 <tr>
-                <!-- td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td -->
-                <td><h6 class="mb-0 text-sm">{$status}</h6></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['apellido_m']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['usuario']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$tipo}</p></td>
-                
-                <td class="center" >
-                    <a href="/Usuarios/edit/{$value['administrador_id']}" type="submit" name="id" class="btn btn-outline-primary"><span class="fa fa-pencil-square-o"></span> </a>
-                    <!--<a href="/Usuarios/show/{$value['administrador_id']}" type="submit" name="id_empresa" class="btn btn-outline-success"><span class="fa fa-eye" ></span> </a>
-                    <button type="submit" name="id_empresa" class="btn btn-outline-info"><span class="fa fa-eye"></span></button>-->             
-                </td>
+                  <!-- td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td -->
+                  <td><h6 class="mb-0 text-sm">{$status}</h6></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['apellido_m']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['usuario']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$tipo}</p></td>
+                  
+                  <td class="center" >
+                      <a href="/Usuarios/edit/{$value['administrador_id']}" type="submit" name="id" class="btn btn-outline-primary"><span class="fa fa-pencil-square-o"></span> </a>
+                      <!--<a href="/Usuarios/show/{$value['administrador_id']}" type="submit" name="id_empresa" class="btn btn-outline-success"><span class="fa fa-eye" ></span> </a>
+                      <button type="submit" name="id_empresa" class="btn btn-outline-info"><span class="fa fa-eye"></span></button>-->             
+                  </td>
                 </tr>
 html;
      }
@@ -215,6 +165,7 @@ html;
       $extraFooter =<<<html
       <script>
         $(document).ready(function(){
+          
           $.validator.addMethod("verificarRFC",
             function(value, element) {
               var result = false;
@@ -762,7 +713,7 @@ html;
 
      
         View::set('tabla',$tabla);
-        //View::set('header',$this->_contenedor->header($extraheader));
+        View::set('header',$this->_contenedor->header($extraheader));
         //View::set('footer',$this->_contenedor->footer($extraFooter));
         View::set('alerta',$alerta);
         View::render("usuarios_all");

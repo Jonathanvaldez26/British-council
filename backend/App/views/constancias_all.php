@@ -102,13 +102,19 @@
             </div>
         </div>
         <br>
-        <a href="/AdminConstancia/Add" type="button" class="btn btn-primary btn-sm">Add</a>
-        <!-- <button type="button" class="btn btn-secondary btn-sm">Delete</button> -->
+            <a href="/AdminConstancia/Add" type="button" class="btn btn-primary btn-sm"><span class="fa fa-plus"></span> Add</a>
         <br>
+
+
+        <style>
+            tr.odd {
+                border-style: none !important;
+            }
+        </style>
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
-                    <table class="table align-items-center mb-0">
+                    <table id="constanciasAll" class="table table-striped table-bordered     align-items-center mb-0">
                         <thead>
                         <tr>
                             
@@ -137,6 +143,7 @@
 <?php echo $footer; ?>
 
 <script>
+
     $(document).ready(function() {
         $(".btn_download").on("click", function(event){
             event.preventDefault();
