@@ -89,7 +89,7 @@
                                 <!-- <form role="form" class="text-start" id="login" action="/Login/crearSession" method="POST" class="form-horizontal"> -->
                             <form role="form" class="row contact_form" id="login" action="/Login/validarDatos" method="POST" class="form-horizontal">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Identification" aria-label="Email">
+                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="E-mail" aria-label="Email">
                                 </div>
                                 <!-- <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="password" name="password" value=""
