@@ -113,27 +113,21 @@
 
             .table-responsive::-webkit-scrollbar-thumb:hover {
                 background-color: #999;
+                transition: background-color .2s linear, width .2s ease-in-out;
             }
             .table-responsive::-webkit-scrollbar-thumb {
-                background-color: #aaa;
+                background-color: #ddd;
                 border-radius: 6px;
             }
             .table-responsive::-webkit-scrollbar:hover {
                 /* display: none; */
-                height: 10px;
                 background-color: #00000000;
             }
+
             .table-responsive::-webkit-scrollbar {
-                /* display: none; */
                 border-radius: 10px;
                 height: 6px;
                 background-color: #00000000;
-                border-radius: 6px;
-                transition: background-color .2s linear, width .2s ease-in-out;
-                -webkit-transition: background-color .2s linear, width .2s ease-in-out;
-                width: 6px;
-                right: 2px;
-                position: absolute;
             }
         </style>
         <div class="col-12">

@@ -32,7 +32,7 @@ class ContenedorAdmin extends Controller{
              <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icono_bbelt.png">
              <link rel="icon" href="../../assets_2/img/icono_bbelt.png">
              <title>
-                GRUPO LAHE
+                Users - British Council
              </title>
              <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
              <!-- Nucleo Icons -->
@@ -187,7 +187,7 @@ html;
              <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icono_bbelt.png">
              <link rel="icon" href="../../assets_2/img/icono_bbelt.png">
              <title>
-                GRUPO LAHE
+              Constancy - British Council
              </title>
              <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
              <!-- Nucleo Icons -->
