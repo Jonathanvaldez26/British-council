@@ -130,19 +130,19 @@ html;
         }
         $tabla.=<<<html
                 <tr>
-                <!-- td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td -->
-                <td><h6 class="mb-0 text-sm">{$status}</h6></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['apellido_m']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$value['usuario']}</p></td>
-                <td><p class="text-sm text-secondary mb-0">{$tipo}</p></td>
-                
-                <td class="center" >
-                    <a href="/Usuarios/edit/{$value['administrador_id']}" type="submit" name="id" class="btn btn-outline-primary"><span class="fa fa-pencil-square-o"></span> </a>
-                    <!--<a href="/Usuarios/show/{$value['administrador_id']}" type="submit" name="id_empresa" class="btn btn-outline-success"><span class="fa fa-eye" ></span> </a>
-                    <button type="submit" name="id_empresa" class="btn btn-outline-info"><span class="fa fa-eye"></span></button>-->             
-                </td>
+                  <!-- td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td -->
+                  <td><h6 class="mb-0 text-sm">{$status}</h6></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['apellido_m']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$value['usuario']}</p></td>
+                  <td><p class="text-sm text-secondary mb-0">{$tipo}</p></td>
+                  
+                  <td class="center" >
+                      <a href="/Usuarios/edit/{$value['administrador_id']}" type="submit" name="id" class="btn btn-outline-primary"><span class="fa fa-pencil-square-o"></span> </a>
+                      <!--<a href="/Usuarios/show/{$value['administrador_id']}" type="submit" name="id_empresa" class="btn btn-outline-success"><span class="fa fa-eye" ></span> </a>
+                      <button type="submit" name="id_empresa" class="btn btn-outline-info"><span class="fa fa-eye"></span></button>-->             
+                  </td>
                 </tr>
 html;
      }

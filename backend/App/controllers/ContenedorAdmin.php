@@ -142,7 +142,7 @@ $menu =<<<html
            <div class="" id="pagesExamples">
              <ul class="nav ms-4 ps-3">
                <li class="">
-               <a style="margin: 0;" data-bs-toggle="" href="/Users/" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+               <a style="margin: 0;" data-bs-toggle="" href="/Usuarios/" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
                 <div style="color: white;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                   
                 </div>
@@ -200,6 +200,7 @@ html;
              <!-- TEMPLATE VIEJO-->
              <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
              <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+             <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
              <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
  
  

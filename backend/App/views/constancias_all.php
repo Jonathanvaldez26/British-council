@@ -106,10 +106,15 @@
         <br>
 
 
+        <style>
+            tr.odd {
+                border-style: none !important;
+            }
+        </style>
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
-                    <table id="constanciasAll" class="table align-items-center mb-0">
+                    <table id="constanciasAll" class="table table-striped table-bordered     align-items-center mb-0">
                         <thead>
                         <tr>
                             
@@ -140,7 +145,6 @@
 <script>
 
     $(document).ready(function() {
-        // $('#constanciasAll').DataTable();
         $(".btn_download").on("click", function(event){
             event.preventDefault();
             var valueButton = $(this).attr('id');

@@ -63,14 +63,15 @@ html;
             }
 
               $tabla.=<<<html
+              
                   <tr>
-                      <td style="font-size: small;">{$value['nombre_user']}</td>
-                      <td style="font-size: small;">{$value['code']}</td>
-                      <td style="font-size: small;">{$value['nombre']}</td>
-                      <td style="font-size: small;">{$value['fecha']}</td>
-                      <td style="font-size: small;">{$value['ruta_constancia']}</td>
-                      <td style="font-size: small;">{$value['ruta_qr']}</td>
-                      <td style="font-size: small;">{$style}$status</span></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['nombre_user']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['code']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['ruta_constancia']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['ruta_qr']}</p></td>
+                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
                       <td class="center" >
                           <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
                           {$button_activate}
@@ -191,7 +192,7 @@ html;
 
 
       
-      View::set('header',$this->_contenedor->header($extraHeader));
+      View::set('header',$this->_contenedor->header_constancy($extraHeader));
       View::set('usuarios',$usuarios);
       View::set('option',$option);
       View::set('footer',$extraFooter);
