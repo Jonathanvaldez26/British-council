@@ -308,7 +308,7 @@ html;
               nombre:{
                 required: true
               },
-              descripcion:{
+              usuario:{
                 required: true
               },
               status:{
@@ -317,13 +317,13 @@ html;
             },
             messages:{
               nombre:{
-                required: "Este campo es requerido"
+                required: "This field is required"
               },
-              descripcion:{
-                required: "Este campo es requerido"
+              usuario:{
+                required: "This field is required"
               },
               status:{
-                required: "Este campo es requerido"
+                required: "This field is required"
               }
             }
           });//fin del jquery validate

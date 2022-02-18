@@ -4,7 +4,9 @@ defined("APPPATH") OR die("Access denied");
 
 use \Core\View;
 use \Core\MasterDom;
+use \App\controllers\Mailer;
 use \App\models\Login AS LoginDao;
+
 
 class Login{
     private $_contenedor;
@@ -142,10 +144,8 @@ html;
                         }
                     });
                 });
+            });    
 
-
-
-           
         </script>
 
         
@@ -322,6 +322,24 @@ html;
       } else {
           echo 'fail REQUEST';
       }
+    }
+
+    public function enviarMailValidate(){
+        $userData =  new \stdClass();
+        $usuario =  $_POST['usuario'];
+     
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        
+        $userData->_usuario = $usuario;
+
+        $user = LoginDao::getById($userData);
+        // var_dump($user);
+        // exit;
+        $mailer = new Mailer();
+        $mailer->mailerValidateData($user);
+        } else {
+            echo 'fail REQUEST';
+        }
     }
 
 }

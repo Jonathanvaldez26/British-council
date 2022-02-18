@@ -185,7 +185,7 @@ html;
         $option = '';
       foreach ($usuarios as $key => $value) {
         $option .=<<<html
-        <option value="{$value['administrador_id']}">{$value['nombre']}</option>   
+        <option value="{$value['administrador_id']}">{$value['nombre']} {$value['apellido_m']} {$value['apellido_p']}</option>   
 html;
       }
 

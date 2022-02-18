@@ -83,7 +83,11 @@
               <div class="form-group col-6">
                   <label class="form-label">Name *</label>
                   <div class="input-group">
+<<<<<<< HEAD
+                      <input id="nombre" name="nombre" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" onfocus="focused(this)" onfocusout="defocused(this)">
+=======
                       <input id="nombre" name="nombre" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" required onfocus="focused(this)" onfocusout="defocused(this)">
+>>>>>>> 6ab49930fe189a5e316742c4ca358c7395d331aa
                   </div>
               </div>
 
@@ -106,7 +110,7 @@
               <div class="form-group col-6">
                   <label class="form-label mt-4">User *</label>
                   <div class="input-group">
-                      <input id="usuario" name="usuario" maxlength="24" class="form-control" type="email" placeholder="example@example.com" required="required" onfocus="focused(this)" value="<?php echo $usuario['usuario']; ?>" onfocusout="defocused(this)">
+                      <input id="usuario" name="usuario" maxlength="24" class="form-control" type="email" placeholder="example@example.com" onfocus="focused(this)" value="<?php echo $usuario['usuario']; ?>" onfocusout="defocused(this)" required>
                   </div>
               </div>
             </div>
