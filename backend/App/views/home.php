@@ -69,7 +69,7 @@
                             <h2>Download your
                                 Certificate
                             </h2>
-                            <p>Check the information below, if all it is ok, download <br> your certificate, click at the bottom</p>
+                            <p>Check the information below, if all it is ok, download <br> your certificate, click at the button with the qr code.</p>
                             <table class="table align-items-center mb-0">
                                 <thead>
                                 <tr>

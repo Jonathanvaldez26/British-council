@@ -73,9 +73,9 @@
                     <div class="hide-elem login_part_text text-center">
                         <div class="login_part_text_iner">
                             
-                            <h2>Welcome to British Council Certificate</h2>
+                            <h2>Welcome to British Council Certificates</h2>
                             
-                            <p id="snd-text">You can get your constance here. Please Login with your ID.</p>
+                            <p id="snd-text">You can get your certificate here. Please login with your ID.</p>
                             <!-- <a href="#" class="btn_3">Create an Account</a> -->
                         </div>
                     </div>
@@ -85,11 +85,11 @@
                         <div class="login_part_form_iner">
                             <?php echo $alerta; ?>
                             <h3>
-                                Please Sign in now</h3>
+                                Please sign in.</h3>
                                 <!-- <form role="form" class="text-start" id="login" action="/Login/crearSession" method="POST" class="form-horizontal"> -->
                             <form role="form" class="row contact_form" id="login" action="/Login/validarDatos" method="POST" class="form-horizontal">
                                 <div class="col-md-12 form-group p_star">
-                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Identificator" aria-label="Email">
+                                    <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Identification" aria-label="Email">
                                 </div>
                                 <!-- <div class="col-md-12 form-group p_star">
                                     <input type="password" class="form-control" id="password" name="password" value=""
