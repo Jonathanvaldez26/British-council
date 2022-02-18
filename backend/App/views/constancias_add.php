@@ -22,7 +22,7 @@
                             </svg>
                         </a>
                     </li>
-                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark active" aria-current="page" href="/AdminConstancia/">Constancy</a></li>
+                    <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark active" aria-current="page" href="/AdminConstancia/">Certificate</a></li>
                     <!-- <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark">Clientes</a></li>
                     <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="/Empresa/">Empresas</a></li> -->
                     <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Add</li>
@@ -74,7 +74,7 @@
         <form method="POST" class="form-horizontal" id="add" action="/AdminConstancia/constanciaAdd">
             <div class="form-group ">
                 <div class="card-header">
-                    <h5>General Data to Generate Constancy</h5>
+                    <h5>General Data to Generate Certificate</h5>
                 </div>
                 <div class="card-body pt-0">
                     <div class="row">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="form-group col-6">
-                            <label class="form-label">Constancy Name *</label>
+                            <label class="form-label">Certificate Name *</label>
                             <div class="input-group">
                                 <input id="nombre" name="nombre" class="form-control" maxlength="44" type="text" placeholder="Academic Record" value="British Council 2022" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
                             </div>

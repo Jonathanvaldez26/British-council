@@ -43,7 +43,7 @@ class Constancia{
   public static function getByIdAdmin($user){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT id_constancia, nombre, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_administrador = $user and status = 1;
+      SELECT id_constancia, nombre, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_administrador = $user and status = '1';
       sql;
       return $mysqli->queryAll($query);
     }
