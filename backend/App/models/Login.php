@@ -8,6 +8,7 @@ use \App\interfaces\Crud;
 class Login{
 
     public static function getById($usuario){
+        
         $mysqli = Database::getInstance(true);
         $query =<<<sql
          SELECT * FROM utilerias_administradores WHERE usuario LIKE :usuario

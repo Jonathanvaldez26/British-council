@@ -54,7 +54,7 @@
 
                         <div class="btn-qr">
                                 <button class="btn_1 btn-primary btn_confirm" id="btn-confirm">Confirm</button>
-                                <a href="/Login" class="btn_danger ">Cancelar</a>
+                                <button class="btn_1 btn-danger btn_confirm" id="btn-cancelar" value="<?= $usuario['usuario'] ?>">Cancelar</button>
                         </div>
                     </div>
                 </div>
@@ -101,6 +101,39 @@
                     }
 
                     console.log(respuesta);
+
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+
+            });
+        });
+
+        $("#btn-cancelar").on("click", function(event) {
+            event.preventDefault();
+
+           var usuario = $(this).val();
+            
+            $.ajax({
+                url: "/Login/enviarMailValidate",
+                type: "POST",
+                data: {usuario:usuario},
+                cache: false,
+                beforeSend: function() {
+                    console.log("Procesando....");
+
+                },
+                success: function(respuesta) {
+                    console.log(respuesta);
+                    Swal.fire(
+                            'OK',
+                            'Your data was sent !!!',
+                            'Success'
+                        );
+                        setTimeout(() => {
+                            window.location.href = "/Login";
+                        }, 900);
 
                 },
                 error: function(respuesta) {
