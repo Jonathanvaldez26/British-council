@@ -174,7 +174,7 @@
 
                     if(respuesta == 'true'){
                         
-                        $("#text_usuario").html("*Este usurio ya existe");
+                        $("#text_usuario").html("*This User Already Exist");
                         $("#btnAdd").attr("disabled","disabled");
 
                     }else{
