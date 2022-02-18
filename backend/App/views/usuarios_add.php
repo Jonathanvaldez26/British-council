@@ -98,7 +98,7 @@
                             </div>
                         </div>
                         <div class="col-6">
-                            <label class="form-label mt-4">Usuario *</label>
+                            <label class="form-label mt-4">User *</label>
                             <div class="input-group">
                                 <input id="usuario" name="usuario" class="form-control" maxlength="24" type="text" placeholder="example@example.com" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
                                
