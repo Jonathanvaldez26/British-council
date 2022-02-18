@@ -364,8 +364,6 @@ html;
                  $('.current').addClass("btn btn-info").removeClass("paginate_button");
                  $('.dataTables_length').addClass("m-4");
                  $('.dataTables_filter').addClass("m-4");
-                 $('input').addClass("form-control");
-                 $('select').addClass("form-control");
             }
           });
           $('#constanciasAll').DataTable( {

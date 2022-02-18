@@ -65,13 +65,13 @@ html;
               $tabla.=<<<html
               
                   <tr>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['nombre_user']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['code']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['ruta_constancia']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$value['ruta_qr']}</p></td>
-                      <td style="font-size: small;"><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['code']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['ruta_constancia']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['ruta_qr']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
                       <td class="center" >
                           <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
                           {$button_activate}
