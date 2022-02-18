@@ -103,6 +103,30 @@
         <a href="/Usuarios/Add" type="button" class="btn btn-primary btn-sm"><span class="fa fa-plus"></span> Add</a>
         <!-- <button type="button" class="btn btn-secondary btn-sm">Delete</button> -->
         <br>
+        <style>
+            tr.odd {
+                border-style: none !important;
+            }
+
+            .table-responsive::-webkit-scrollbar-thumb:hover {
+                background-color: #999;
+                transition: background-color .2s linear, width .2s ease-in-out;
+            }
+            .table-responsive::-webkit-scrollbar-thumb {
+                background-color: #ddd;
+                border-radius: 6px;
+            }
+            .table-responsive::-webkit-scrollbar:hover {
+                /* display: none; */
+                background-color: #00000000;
+            }
+
+            .table-responsive::-webkit-scrollbar {
+                border-radius: 10px;
+                height: 6px;
+                background-color: #00000000;
+            }
+        </style>
         <div class="col-12">
             <div class="card">
                 <div class="table-responsive">
