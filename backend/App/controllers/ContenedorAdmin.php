@@ -358,8 +358,25 @@ html;
 
         <script>
         $(document).ready( function () {
-          $('#constanciasAll').DataTable();
-          $('#usera').DataTable();
+          // $('#constanciasAll').DataTable();
+          $('#usera').DataTable({
+            "drawCallback": function( settings ) {
+                 $('.current').addClass("btn btn-info").removeClass("paginate_button");
+                 $('.dataTables_length').addClass("m-4");
+                 $('.dataTables_filter').addClass("m-4");
+                 $('input').addClass("form-control");
+                 $('select').addClass("form-control");
+            }
+          });
+          $('#constanciasAll').DataTable( {
+            "drawCallback": function( settings ) {
+                 $('.current').addClass("btn btn-info").removeClass("paginate_button");
+                 $('.dataTables_length').addClass("m-4");
+                 $('.dataTables_filter').addClass("m-4");
+                 $('input').addClass("form-control");
+                 $('select').addClass("form-control");
+            }
+          });
         });
         </script>
 html;
