@@ -266,6 +266,14 @@ html;
          <li class="nav-item">
            <div class="" id="pagesExamples">
              <ul class="nav ms-4 ps-3">
+                <li class="">
+                <a style="margin: 0;" data-bs-toggle="" href="/Usuarios/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                    
+                    </div>
+                    <span class="nav-link-text ms-1">Users</span>
+                  </a>
+                </li>
                <li class="m-0">
                <a style="margin: 0;" data-bs-toggle="" href="/AdminConstancia/" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
                 <div style="color: #fff;" class="fa fa-certificate icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
@@ -277,14 +285,7 @@ html;
                <li>
                 
                </li>
-               <li class="">
-               <a style="margin: 0;" data-bs-toggle="" href="/Usuarios/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
-                  <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
-                   
-                  </div>
-                  <span class="nav-link-text ms-1">Users</span>
-                </a>
-               </li>
+               
                
                
          </ul>

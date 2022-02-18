@@ -47,9 +47,11 @@ class AdminConstancia extends Controller{
               <span class="badge badge-pill badge-primary">         
 html;
               $button_activate = <<<html
+              <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
               <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>
               <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}"><span class="fa fa-download"></span></a>
-html;
+              <a href="{$value['ruta_constancia']}" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}" download>des</a>  
+          html;
             }
             else
             {
@@ -66,11 +68,8 @@ html;
               
                   <tr>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']}</p></td>
-                      <td><p class="text-sm text-secondary mb-0">{$value['code']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
-                      <td><p class="text-sm text-secondary mb-0">{$value['ruta_constancia']}</p></td>
-                      <td><p class="text-sm text-secondary mb-0">{$value['ruta_qr']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
                       <td class="center" >
                           <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
@@ -241,16 +240,13 @@ html;
               <tr>
                   
                   <td>{$value['nombre_user']}</td>
-                  <td>{$value['code']}</td>
                   <td>{$value['nombre']}</td>
                   <td>{$value['fecha']}</td>
-                  <td>{$value['ruta_constancia']}</td>
-                  <td>{$value['ruta_qr']}</td>
                   <td>$status</td>
                   <td class="center" >
                       <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
-                      <button  class="btn btn-primary btn_status" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}">Activar </button>
-                      <a href="{$value['ruta_constancia']}" class="btn btn-success btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}"><span class="glyphicon glyphicon-check" style="color:white"></span> Donwload</a>
+                      <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>
+                      <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}"><span class="fa fa-download"></span></a>
                       <a href="{$value['ruta_constancia']}" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}" download>des</a>  
                   </td>
               </tr>
@@ -265,23 +261,29 @@ html;
         //$this->alerta($id,'add');
         $alerta =<<<html
 
-        <div class="alert alert-success" role="alert">
-            Se genero la constancia
-        </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                Certificate has Generate
+            </div>
 html;
       }else{
         //$this->alerta($id,'error');
         $alerta =<<<html
 
-            <div class="alert alert-warning" role="alert">
-                Hubo un problema al generar la constancia
-            </div>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+            A problem has ocurred with the Certificate
+        </div>
 html;
       }
 
       View::set('alerta',$alerta);
       View::set('tabla',$tabla);
-      View::set('header',$this->_contenedor->header($extraHeader));
+      View::set('header',$this->_contenedor->header_constancy($extraHeader));
       View::set('footer',$this->_contenedor->footer($extraFooter));
       View::render("constancias_all");
     }

@@ -137,11 +137,8 @@
                         <thead>
                         <tr>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Code</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Path</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">QR Path</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                             <th></th>
                         </tr>

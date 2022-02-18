@@ -569,7 +569,6 @@ html;
         }
         $tabla.=<<<html
                 <tr>
-                <td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td>
                 <td><h6 class="mb-0 text-sm">{$status}</h6></td>
                 <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
                 <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
@@ -593,17 +592,23 @@ html;
       if($id >= 1){
         $alerta =<<<html
 
-        <div class="alert alert-success" role="alert">
-            Se creo el Usuario Correctamente
-        </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                User has Create
+            </div>
 html;
       }else{
         //$this->alerta($id,'error');
         $alerta =<<<html
 
-        <div class="alert alert-success" role="alert">
-            Hubo un error al crear el usuario
-        </div>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+              <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                A problem has ocurred to create an User
+            </div>
 html;
       }
 
@@ -614,7 +619,7 @@ html;
       View::render("usuarios_all");
     }
 
-    public function empresaEdit(){
+    public function userEdit(){
       $usuario = new \stdClass();
       $usuario->_administrador_id  = MasterDom::getData('administrador_id');
       
@@ -646,8 +651,11 @@ html;
             //header("Location: /Usuarios");
             $alerta =<<<html
 
-            <div class="alert alert-success" role="alert">
-                Se actualizo el usuario
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                User has Update
             </div>
 html;
 
@@ -655,8 +663,11 @@ html;
             //echo 'fail';
             $alerta =<<<html
 
-            <div class="alert alert-warning" role="alert">
-                Hubo un problema al actualizar el usuario
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <button type="button" class="badge badge-danger close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                A problem has occurred
             </div>
 html;
         }
@@ -670,14 +681,14 @@ html;
           if($value['status'] = 1){
               $status =<<<html
                  <span class="badge badge-pill badge-primary">
-                        Activo
+                        Active
                  </span>   
 html;
           }elseif ($value['status'] = 2)
           {
               $status =<<<html
                  <span class="badge badge-pill badge-danger">
-                        Desactivado
+                        Deactivate
                  </span>   
 html;
           }
@@ -694,7 +705,7 @@ html;
         }
         $tabla.=<<<html
                 <tr>
-                <td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td>
+                <!--td><input type="checkbox" name="borrar[]" value="{$value['administrador_id']}"/></td-->
                 <td><h6 class="mb-0 text-sm">{$status}</h6></td>
                 <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
                 <td><p class="text-sm text-secondary mb-0">{$value['apellido_p']}</p></td>
