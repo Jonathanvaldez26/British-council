@@ -105,7 +105,7 @@ class Home extends Controller{
 
             if($value['generada'] == 0){
                 $btn_qr =<<<html
-                    <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode"></span></button>
+                    <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"></span></button>
 html;
             }else{
                 $btn_qr = <<<html
@@ -125,7 +125,8 @@ html;
             </style>
             <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
             <td class="center" >
-                <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"> </span></button>
+                <!--<button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"> </span></button>-->
+                {$btn_qr}
                 <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
                 <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
             </td>
