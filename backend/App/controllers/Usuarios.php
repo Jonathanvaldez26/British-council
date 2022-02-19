@@ -32,6 +32,12 @@ class Usuarios extends Controller{
     public function index() {
       
       $extraFooter =<<<html
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+      <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
+      <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+      <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
       <script>
         $(document).ready(function(){
           $('#usera').DataTable();

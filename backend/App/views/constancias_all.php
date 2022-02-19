@@ -1,3 +1,7 @@
+    
+      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+      <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+</head>
 <?php echo $header; ?>
 <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
    
