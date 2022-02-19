@@ -101,7 +101,7 @@ html;
                     });
 
                     return response;
-                },"Este usuario no esta registrado");
+                },"                This user is not registered");
 
                 $("#login").validate({
                    rules:{
