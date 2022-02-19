@@ -617,11 +617,12 @@ html;
 html;
       }
 
-      View::set('tabla',$tabla);
-      View::set('alerta',$alerta);
-      View::set('header',$this->_contenedor->header($extraheader));
-      View::set('footer',$this->_contenedor->footer($extraFooter));
-      View::render("usuarios_all");
+      // View::set('tabla',$tabla);
+      // View::set('alerta',$alerta);
+      // View::set('header',$this->_contenedor->header($extraheader));
+      // View::set('footer',$this->_contenedor->footer($extraFooter));
+      // View::render("usuarios_all");
+      header("location: /Usuarios/");
     }
 
     public function userEdit(){
@@ -725,11 +726,12 @@ html;
      }
 
      
-        View::set('tabla',$tabla);
-        View::set('header',$this->_contenedor->header($extraheader));
+        // View::set('tabla',$tabla);
+        // View::set('header',$this->_contenedor->header($extraheader));
         //View::set('footer',$this->_contenedor->footer($extraFooter));
-        View::set('alerta',$alerta);
-        View::render("usuarios_all");
+        // View::set('alerta',$alerta);
+        // View::render("usuarios_all");
+        header("location: /Usuarios/");
     }
 
     public function buscarUsuario(){
