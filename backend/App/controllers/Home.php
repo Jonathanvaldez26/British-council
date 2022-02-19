@@ -352,7 +352,7 @@ html;
                     'ruta_constancia' => $constancia[0]['ruta_constancia'],
                     'code' => $constancia[0]['code'],
                     'id_constancia' => $constancia[0]['id_constancia'],
-                    'url_qr' => 'https://focused-antonelli.3-137-40-198.plesk.page/DatosConstancia/datos/'.$constancia[0]['code'],
+                    'url_qr' => 'https://bbeltcertificate.sas-lahe.com/DatosConstancia/datos/'.$constancia[0]['code'],
                     'status_generada' => 1
 
                 ];
