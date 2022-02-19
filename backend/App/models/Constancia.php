@@ -53,7 +53,9 @@ class Constancia{
       $query=<<<sql
       SELECT
       c.id_constancia,
-      CONCAT(ua.nombre, ' ',ua.apellido_p, ' ',ua.apellido_m) As nombre_user,
+      ua.nombre As nombre_user,
+      ua.apellido_p,
+      ua.apellido_m,
       c.code,
       c.nombre,
       c.fecha,

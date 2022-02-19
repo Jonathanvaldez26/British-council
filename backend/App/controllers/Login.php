@@ -333,8 +333,6 @@ html;
         $userData->_usuario = $usuario;
 
         $user = LoginDao::getById($userData);
-        // var_dump($user);
-        // exit;
         $mailer = new Mailer();
         $mailer->mailerValidateData($user);
         } else {
