@@ -37,7 +37,7 @@ try {
 
     //Recipients
     $mail->setFrom('pruebass345@gmail.com', 'BC');
-    $mail->addAddress($data['usuario'], $data['nombre']);     //Add a recipient
+    $mail->addAddress($data['nombre'], $data['nombre']);     //Add a recipient
 
     $url = explode('/', $data['ruta_constancia'] );
     $ruta_constancia = $url['1']."/".$url['2'];
