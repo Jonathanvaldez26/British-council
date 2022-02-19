@@ -83,14 +83,14 @@
               <div class="form-group col-6">
                   <label class="form-label">Name *</label>
                   <div class="input-group">
-                      <input id="nombre" name="nombre" pattern="[a-zA-Z ]{2,254}" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" required onfocus="focused(this)" onfocusout="defocused(this)">
+                      <input id="nombre" name="nombre" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*{2,254}" maxlength="29" class="form-control text-uppercase" type="text" placeholder="Bruce" value="<?php echo $usuario['nombre']; ?>" required onfocus="focused(this)" onfocusout="defocused(this)">
                   </div>
               </div>
 
               <div class="form-group col-6">
                   <label class="form-label">Surname *</label>
                   <div class="input-group">
-                      <input id="apellido_p" name="apellido_p" pattern="[a-zA-Z ]{2,254}" maxlength="44" class="form-control text-uppercase" type="text" placeholder="Wayne" required="required" onfocus="focused(this)" value="<?php echo $usuario['apellido_p']; ?>" onfocusout="defocused(this)">
+                      <input id="apellido_p" name="apellido_p" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*{2,254}" maxlength="44" class="form-control text-uppercase" type="text" placeholder="Wayne" required="required" onfocus="focused(this)" value="<?php echo $usuario['apellido_p']; ?>" onfocusout="defocused(this)">
                   </div>
               </div>
             </div>
@@ -99,7 +99,7 @@
               <div class="form-group col-6">
                   <label class="form-label mt-4">Second surname</label>
                   <div class="input-group">
-                      <input id="apellido_m" name="apellido_m" pattern="[a-zA-Z ]{2,254}" maxlength="44" class="form-control text-uppercase" type="text" placeholder="Kent" onfocus="focused(this)" value="<?php echo $usuario['apellido_m']; ?>" onfocusout="defocused(this)">
+                      <input id="apellido_m" name="apellido_m" pattern="[a-zA-Z ÑñáÁéÉíÍóÚ]*{2,254}" maxlength="44" class="form-control text-uppercase" type="text" placeholder="Kent" onfocus="focused(this)" value="<?php echo $usuario['apellido_m']; ?>" onfocusout="defocused(this)">
                   </div>
               </div>
 
