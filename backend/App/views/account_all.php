@@ -25,26 +25,26 @@
                                     <div class="col-4">
                                         <label class="form-label">Name</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['nombre'] ?>">
+                                            <input type="text" class="form-control" id="name" maxlength="29" name="name" placeholder="Name" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['nombre'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <label class="form-label">Surname</label>
                                         <div class="input-group">
-                                            <input id="primer_apellido_" name="primer_apellido_" class="form-control" type="text" placeholder="Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['apellido_p'] ?>">
+                                            <input id="primer_apellido_" name="primer_apellido_" maxlength="44" class="form-control" type="text" placeholder="Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['apellido_p'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <label class="form-label">Second Surname</label>
                                         <div class="input-group">
-                                            <input id="segundo_apellido_" name="segundo_apellido_" class="form-control" type="text" placeholder="Second Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['apellido_m'] ?>">
+                                            <input id="segundo_apellido_" name="segundo_apellido_" maxlength="44" class="form-control" type="text" placeholder="Second Surname" required="required" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['apellido_m'] ?>">
                                         </div>
                                     </div>
                                     <div class="col-4">
                                         <br>
                                         <label class="form-label">Email Registered</label>
                                         <div class="input-group">
-                                            <input id="email_" name="email_" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" readonly="readonly" value="<?= $usuario['usuario'] ?>">
+                                            <input id="email_" name="email_" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['usuario'] ?>" disabled> <!--readonly="readonly" -->
                                         </div>
                                     </div>
                                 </div>
