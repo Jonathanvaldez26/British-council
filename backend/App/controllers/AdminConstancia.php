@@ -337,6 +337,11 @@ html;
               </button>
                 Certificate has Generate
             </div>
+          
+            <script>
+              function redireccionar(){window.location="/AdminConstancia";}
+              setTimeout ("redireccionar()", 1000);
+            </script>
 html;
       }else{
         //$this->alerta($id,'error');

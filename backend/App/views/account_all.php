@@ -44,7 +44,7 @@
                                         <br>
                                         <label class="form-label">Email Registered</label>
                                         <div class="input-group">
-                                            <input id="email_" name="email_" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)" value="<?= $usuario['usuario'] ?>" disabled> <!--readonly="readonly" -->
+                                            <input id="email_" name="email_" class="form-control" type="email" placeholder="example@email.com" onfocus="focused(this)" readonly="readonly" onfocusout="defocused(this)" value="<?= $usuario['usuario'] ?>"> <!-- -->
                                         </div>
                                     </div>
                                 </div>
@@ -55,7 +55,7 @@
 
                         <div class="btn-qr">
                                 <button class="btn_1 btn-primary btn_confirm" id="btn-confirm">Confirm</button>
-                                <button class="btn_1 btn-danger" style="background-color: red;" id="btn-cancelar" value="<?= $usuario['usuario'] ?>">Cancel</button>
+                                <button class="btn_1 btn-danger btn_confirm" style="background-color: red;" id="btn-cancelar" value="<?= $usuario['usuario'] ?>">Cancel</button>
                         </div>
                     </div>
                 </div>
