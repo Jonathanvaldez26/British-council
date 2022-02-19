@@ -519,26 +519,26 @@ html;
       $usuario = new \stdClass();
 
       $nombre = MasterDom::getDataAll('nombre');
-      $nombre = MasterDom::procesoAcentosNormal($nombre);
+      //$nombre = MasterDom::procesoAcentosNormal($nombre);
       $usuario->_nombre = $nombre;
 
       $apellido_p = MasterDom::getDataAll('apellido_p');
-      $apellido_p = MasterDom::procesoAcentosNormal($apellido_p);
+      //$apellido_p = MasterDom::procesoAcentosNormal($apellido_p);
       $usuario->_apellido_p = $apellido_p;
 
       $apellido_m= MasterDom::getDataAll('apellido_m');
-      $apellido_m= MasterDom::procesoAcentosNormal($apellido_m);
+      //$apellido_m= MasterDom::procesoAcentosNormal($apellido_m);
       $usuario->_apellido_m = $apellido_m;
 
       $user= MasterDom::getDataAll('usuario');
-      $user= MasterDom::procesoAcentosNormal($user);
+      //$user= MasterDom::procesoAcentosNormal($user);
       $usuario->_usuario = $user;
 
       $tipo= MasterDom::getDataAll('tipo');
       $usuario->_tipo = $tipo;
 
       $contrasena= MasterDom::getDataAll('contrasena');
-      $contrasena= MasterDom::procesoAcentosNormal($contrasena);
+      //$contrasena= MasterDom::procesoAcentosNormal($contrasena);
       $usuario->_contrasena = md5($contrasena);
 
       $usuarios = UsuarioDao::getAll();
