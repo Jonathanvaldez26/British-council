@@ -20,7 +20,7 @@ class Usuario implements Crud{
     public static function getUserWithoutConstancy(){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT * from `utilerias_administradores` ua WHERE ua.administrador_id NOT IN (select id_administrador from `constancia`) ORDER BY ua.administrador_id ASC;
+      SELECT * from `utilerias_administradores` ua WHERE ua.administrador_id NOT IN (select id_administrador from `constancia`) ORDER BY ua.nombre ASC;
 sql;
       return $mysqli->queryAll($query);
     }
