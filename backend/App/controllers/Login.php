@@ -190,7 +190,7 @@ html;
         header("Location: /Login/");
     }
 
-    public function validarDatos(){
+    public function validateData(){
         $extraHeader =<<<html
         <style>
           .logo{
@@ -317,7 +317,7 @@ html;
               echo 'success';
 
           } else {
-              echo 'fail';
+              echo 'fail for update';
           }
       } else {
           echo 'fail REQUEST';
