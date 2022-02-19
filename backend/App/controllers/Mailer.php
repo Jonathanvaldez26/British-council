@@ -82,13 +82,12 @@ try {
     $mail->setFrom('pruebass345@gmail.com', 'Gerson');
     $mail->addAddress('gvelasco_08@hotmail.com', 'Ger');     //Add a recipient
 
-    $message = "<h5>Dear <b>".$data['nombre']."</b></h5><br>";
-    $message .= "The correct data is <br>";
+    $message = "<h5>Dear <b>Administrator</b></h5><br>";
+    $message .= "The user ".$data['usuario']."<br>";
+    $message .= "has requested his change of information with the following data <br>";
     $message .= "Name : <b>".$data['nombre']."</b><br>";
     $message .= "Surname : <b>".$data['apellido_m']."</b><br>";
     $message .= "Second Surname : <b>".$data['apellido_p']."</b><br>";
-    $message .= "Usuario : <b>".$data['usuario']."</b><br>";
-    
     
     
     //Content

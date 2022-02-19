@@ -352,10 +352,11 @@ html;
       }
 
       View::set('alerta',$alerta);
-      View::set('tabla',$tabla);
-      View::set('header',$this->_contenedor->header_constancy($extraHeader));
-      View::set('footer',$this->_contenedor->footer($extraFooter));
-      View::render("constancias_all");
+      // View::set('tabla',$tabla);
+      // View::set('header',$this->_contenedor->header_constancy($extraHeader));
+      // View::set('footer',$this->_contenedor->footer($extraFooter));
+      // View::render("constancias_all");
+      header("location: /AdminConstancia/");
     }
 
     public function alerta($id, $parametro){
