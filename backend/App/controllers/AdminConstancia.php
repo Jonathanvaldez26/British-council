@@ -130,7 +130,7 @@ html;
               <span class="badge badge-pill badge-danger">         
 html;
               $button_activate = <<<html
-              <button  class="btn btn-success btn_status" title="Activate Constancy" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
+              <button  class="btn btn-success btn_status" title="Activate Certificate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
 html;
             }
 

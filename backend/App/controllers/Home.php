@@ -101,6 +101,7 @@ class Home extends Controller{
             $tabla= '';
             $status= '';
             $btn_qr ='';
+            $nnnn ='';
         foreach ($constancias as $key => $value) {
 
             if($value['generada'] == 0){
@@ -112,7 +113,7 @@ html;
                 <button  class="btn btn-outline-primary btn_ver" value="{$value['code']}" data-id="{$value['id_constancia']}"><span class="fa fa-qrcode"></span></button>
 html;
             }
-                
+            
             $tabla.=<<<html
             <tr>
            
@@ -131,9 +132,10 @@ html;
                 <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
             </td>
             </tr>
-            html;
+html;
         }
-
+    
+      View::set('nnnn',$nnnn);
       View::set('header',$extraHeader);
       View::set('footer',$extraFooter);
       View::set('tabla',$tabla);

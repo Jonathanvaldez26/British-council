@@ -6,6 +6,8 @@ class Controller{
 
     public $__usuario = '';
     public $__nombre = '';
+    public $__apellido_p = '';
+    public $__apellido_m = '';
 
     public function __construct(){
     	session_start();
@@ -18,6 +20,8 @@ class Controller{
             }else{
     	    $this->__usuario = $_SESSION['usuario'];
     	    $this->__nombre = $_SESSION['nombre'];
+            $this->__apellido_p = $_SESSION['apellido_p'];
+            $this->__apellido_m = $_SESSION['apellido_m'];
     	}
     }
 

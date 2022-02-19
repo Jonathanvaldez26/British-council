@@ -161,7 +161,7 @@ $menu =<<<html
                 <div style="color: #24085E;" class="fa fa-certificate icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                   
                 </div>
-                <span class="nav-link-text ms-1">Constancy</span>
+                <span class="nav-link-text ms-1">Certificate</span>
              </a>
                </li>
                
@@ -285,7 +285,7 @@ html;
                 <div style="color: #fff;" class="fa fa-certificate icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
                   
                 </div>
-                <span class="nav-link-text ms-1">Constancy</span>
+                <span class="nav-link-text ms-1">Certificate</span>
               </a>
                </li>
                <li>
