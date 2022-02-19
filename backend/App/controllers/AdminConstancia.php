@@ -137,12 +137,12 @@ html;
               $tabla.=<<<html
               
                   <tr>
-                      <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']} {$value['apellido_p']} {$value['apellido_m']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
                       <td class="center" >
-                          <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
+                         
                           {$button_activate}
                           
                       </td>
