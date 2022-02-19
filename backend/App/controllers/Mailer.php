@@ -29,14 +29,14 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'pruebass345@gmail.com';                     //SMTP username
+    $mail->Username   = 'congressbritishcouncil2022@gmail.com';                     //SMTP username
     $mail->Password   = 'pru3b@5_123';                               //SMTP password
     $mail->SMTPSecure = 'ssl';
     $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('pruebass345@gmail.com', 'BC');
+    $mail->setFrom('congressbritishcouncil2022@gmail.com', 'BC');
     $mail->addAddress($data['nombre'], $data['nombre']);     //Add a recipient
 
     $url = explode('/', $data['ruta_constancia'] );
@@ -72,15 +72,15 @@ try {
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-    $mail->Username   = 'pruebass345@gmail.com';                     //SMTP username
+    $mail->Username   = 'congressbritishcouncil2022@gmail.com';                     //SMTP username
     $mail->Password   = 'pru3b@5_123';                               //SMTP password
     $mail->SMTPSecure = 'ssl';
     $mail->SMTPAutoTLS = false;            //Enable implicit TLS encryption
     $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
-    $mail->setFrom('pruebass345@gmail.com', 'Gerson');
-    $mail->addAddress('gvelasco_08@hotmail.com', 'Ger');     //Add a recipient
+    $mail->setFrom('congressbritishcouncil2022@gmail.com', 'BC');
+    $mail->addAddress('adriana.sanchez@britishcouncil.org', 'AD');     //Add a recipient
 
     $message = "<h5>Dear <b>Administrator</b></h5><br>";
     $message .= "The user ".$data['usuario']."<br>";
