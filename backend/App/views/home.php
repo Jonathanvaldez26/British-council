@@ -9,7 +9,7 @@
                         <a class="navbar-brand" href="/">
                             <img id="logo-bbelt" src="../../assets_2/img/logo_bbelt.png" alt="logo">  
                         </a>
-                        <p><?php echo $_SESSION['nombre']; ?></p>
+                        <p><?php echo $_SESSION['usuario'];?></p>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
