@@ -32,78 +32,7 @@ class AdminConstancia extends Controller{
     public function index() {
       
       $usuarios = UsuarioDao::getAll();
-      $extraFooter =<<<html
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-      <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
-      <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
-      <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
-      <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
-      <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-      <script>
-        $(document).ready(function(){
-          $('#usera').DataTable();
-          $("#muestra-cupones").tablesorter();
-          var oTable = $('#muestra-cupones').DataTable({
-                "columnDefs": [{
-                    "orderable": false,
-                    "targets": 0
-                }],
-                 "order": false
-            });
-
-            // Remove accented character from search input as well
-            $('#muestra-cupones input[type=search]').keyup( function () {
-                var table = $('#example').DataTable();
-                table.search(
-                    jQuery.fn.DataTable.ext.type.search.html(this.value)
-                ).draw();
-            });
-
-            var checkAll = 0;
-            $("#checkAll").click(function () {
-              if(checkAll==0){
-                $("input:checkbox").prop('checked', true);
-                checkAll = 1;
-              }else{
-                $("input:checkbox").prop('checked', false);
-                checkAll = 0;
-              }
-
-            });
-
-
-            $("#export_pdf").click(function(){
-              $('#all').attr('action', '/Empresa/generarPDF/');
-              $('#all').attr('target', '_blank');
-              $("#all").submit();
-            });
-
-            $("#export_excel").click(function(){
-              $('#all').attr('action', '/Empresa/generarExcel/');
-              $('#all').attr('target', '_blank');
-              $("#all").submit();
-            });
-
-            $("#delete").click(function(){
-              var seleccionados = $("input[name='borrar[]']:checked").length;
-              if(seleccionados>0){
-                alertify.confirm('¿Segúro que desea eliminar lo seleccionado?', function(response){
-                  if(response){
-                    $('#all').attr('target', '');
-                    $('#all').attr('action', '/Empresa/delete');
-                    $("#all").submit();
-                    alertify.success("Se ha eliminado correctamente");
-                  }
-                });
-              }else{
-                alertify.confirm('Selecciona al menos uno para eliminar');
-              }
-            });
-
-        });
-      </script>
-html;
-        
+      
           $constancias = ConstanciaDao::getByIdConst();
 
           $tabla= '';
@@ -130,7 +59,7 @@ html;
               <span class="badge badge-pill badge-danger">         
 html;
               $button_activate = <<<html
-              <button  class="btn btn-success btn_status" title="Activate Certificate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
+              <button  class="btn btn-success btn_status" title="Activate Constancy" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
 html;
             }
 
@@ -315,7 +244,7 @@ html;
                   <td>$status</td>
                   <td class="center" >
                       <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
-                      <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" ><span><i class="fa fa-check"></i></span></button>
+                      <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>
                       <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}"><span class="fa fa-download"></span></a>
                       <a href="{$value['ruta_constancia']}" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}" download>des</a>  
                   </td>
@@ -337,11 +266,6 @@ html;
               </button>
                 Certificate has Generate
             </div>
-          
-            <script>
-              function redireccionar(){window.location="/AdminConstancia";}
-              setTimeout ("redireccionar()", 1000);
-            </script>
 html;
       }else{
         //$this->alerta($id,'error');
@@ -356,7 +280,7 @@ html;
 html;
       }
 
-      View::set('alerta',$alerta);
+      // View::set('alerta',$alerta);
       // View::set('tabla',$tabla);
       // View::set('header',$this->_contenedor->header_constancy($extraHeader));
       // View::set('footer',$this->_contenedor->footer($extraFooter));

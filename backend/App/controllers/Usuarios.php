@@ -629,23 +629,23 @@ html;
       $usuario->_administrador_id  = MasterDom::getData('administrador_id');
       
       $nombre = MasterDom::getDataAll('nombre');
-      $nombre = MasterDom::procesoAcentosNormal($nombre);
+      //$nombre = MasterDom::procesoAcentosNormal($nombre);
       $usuario->_nombre = $nombre;
 
       $apellido_p = MasterDom::getDataAll('apellido_p');
-      $apellido_p = MasterDom::procesoAcentosNormal($apellido_p);
+      //$apellido_p = MasterDom::procesoAcentosNormal($apellido_p);
       $usuario->_apellido_p = $apellido_p;
 
       $apellido_m = MasterDom::getDataAll('apellido_m');
-      $apellido_m = MasterDom::procesoAcentosNormal($apellido_m);
+      //$apellido_m = MasterDom::procesoAcentosNormal($apellido_m);
       $usuario->_apellido_m = $apellido_m;
 
       $user = MasterDom::getDataAll('usuario');
-      $user = MasterDom::procesoAcentosNormal($user);
+      //$user = MasterDom::procesoAcentosNormal($user);
       $usuario->_user = $user;
 
       $administrador_id = MasterDom::getDataAll('administrador_id');
-      $administrador_id = MasterDom::procesoAcentosNormal($administrador_id);
+      //$administrador_id = MasterDom::procesoAcentosNormal($administrador_id);
       $usuario->_administrador_id = $administrador_id;
 
 
@@ -725,11 +725,13 @@ html;
      }
 
      
-        View::set('tabla',$tabla);
-        View::set('header',$this->_contenedor->header($extraheader));
-        //View::set('footer',$this->_contenedor->footer($extraFooter));
+        // View::set('tabla',$tabla);
+        // View::set('header',$this->_contenedor->header($extraheader));
+        // //View::set('footer',$this->_contenedor->footer($extraFooter));
         View::set('alerta',$alerta);
-        View::render("usuarios_all");
+        // View::render("usuarios_all");
+
+        header("Location: /Usuarios/");
     }
 
     public function buscarUsuario(){

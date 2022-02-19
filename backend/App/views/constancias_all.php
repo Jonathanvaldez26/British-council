@@ -205,6 +205,7 @@
 
         $(".btn_status").on("click", function(event){
             event.preventDefault();
+
             var valueButton = $(this).attr('id');
             var code = $(this).attr('data-value-status');
             var id_constancia = $(this).attr('data-id-status');
