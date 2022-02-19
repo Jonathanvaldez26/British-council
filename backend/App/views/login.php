@@ -87,7 +87,7 @@
                             <h3>
                                 Please sign in.</h3>
                                 <!-- <form role="form" class="text-start" id="login" action="/Login/crearSession" method="POST" class="form-horizontal"> -->
-                            <form role="form" class="row contact_form" id="login" action="/Login/validarDatos" method="POST" class="form-horizontal">
+                            <form role="form" class="row contact_form" id="login" action="/Login/validateData" method="POST" class="form-horizontal">
                                 <div class="col-md-12 form-group p_star">
                                     <input type="text" name="usuario" id="usuario" class="form-control" placeholder="E-mail" aria-label="Email">
                                 </div>

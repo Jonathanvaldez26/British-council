@@ -190,7 +190,7 @@ html;
         header("Location: /Login/");
     }
 
-    public function validarDatos(){
+    public function validateData(){
         $extraHeader =<<<html
         <style>
           .logo{
