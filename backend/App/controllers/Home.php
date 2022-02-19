@@ -147,11 +147,6 @@ html;
       $mailer = new Mailer();
       $mailer->mailer($constancias[0]);
 
-      //echo $constancias[0]['id_constancia'];
-  
-      //echo json_encode($constancias);
-
-        
     }
 
     function generateRandomString($length = 10) { 

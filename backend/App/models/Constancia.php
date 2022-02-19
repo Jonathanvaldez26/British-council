@@ -71,7 +71,7 @@ sql;
     public static function getByCode($code){
       $mysqli = Database::getInstance();
       $query=<<<sql
-SELECT c.id_constancia, c.nombre as nombre_constancia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, c.generada, ua.nombre, ua.apellido_p, ua.apellido_m
+SELECT c.id_constancia, c.nombre as nombre_constancia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, c.generada, ua.nombre, ua.apellido_p, ua.apellido_m, ua.usuario
 FROM constancia c 
 INNER JOIN utilerias_administradores ua ON (ua.administrador_id = c.id_administrador)
 WHERE c.code = '$code';
