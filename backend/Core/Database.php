@@ -75,7 +75,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en insert '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo $e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo $e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
 
                 return false;
             }
@@ -92,7 +92,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en insert '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		   // echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }
@@ -111,7 +111,7 @@ static $_mail;
                 if(self::$_mail)
                     mail(self::MAIL,'error en update '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
                 if(self::$_debug)
-                    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+                   // echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                     return false;
             }
         }else{
@@ -145,7 +145,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en delete '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }else{
@@ -160,7 +160,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en delete '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }
@@ -176,7 +176,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en queryOne '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }else{
@@ -190,7 +190,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en queryOne '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }
@@ -206,7 +206,7 @@ static $_mail;
 		if(self::$_mail)
                     mail(self::MAIL,'error en queryAll '.self::TEMA,"Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1));
 		if(self::$_debug)
-		    echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
+		    //echo "Error sql : ".$e->getMessage()."\nSql : $sql \n params :\n".print_r($params,1);
                 return false;
             }
         }else{
