@@ -142,7 +142,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Validate / Download </th>
-                            <th></th>
+                            
                         </tr>
                         </thead>
                         <tbody>
