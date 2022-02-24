@@ -181,6 +181,7 @@ html;
         $_SESSION['apellido_p'] = $user['apellido_p'];
         $_SESSION['apellido_m'] = $user['apellido_m'];
         $_SESSION['administrador_id'] = $user['administrador_id'];
+        $_SESSION['tipo'] = $user['tipo'];
         header("location: /Home/");
     }
 
@@ -280,6 +281,7 @@ html;
             $_SESSION['usuario'] = $user['usuario'];
             $_SESSION['nombre'] = $user['nombre'];
             $_SESSION['administrador_id'] = $user['administrador_id'];
+            $_SESSION['tipo'] = $user['tipo'];
             header("location: /Home/");
 
         }elseif(count($user) <= 0){

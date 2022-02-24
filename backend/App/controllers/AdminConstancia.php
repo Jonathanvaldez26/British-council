@@ -201,8 +201,8 @@ html;
       </script>
       html;
       //usuario
-      $tipo = 1;
-      $usuarios = UsuarioDao::getUserWithoutConstancy($tipo);
+      //$tipo = 1;
+      $usuarios = UsuarioDao::getUserWithoutConstancy();
         $option = '';
       foreach ($usuarios as $key => $value) {
         $option .=<<<html

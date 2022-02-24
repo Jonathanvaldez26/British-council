@@ -37,7 +37,11 @@ class Home extends Controller{
             margin: 0px;
             padding: 0px;
           }
-          
+         
+        .btn_qr{
+            padding: 0px;
+        }
+            
         </style>
         <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -98,47 +102,91 @@ class Home extends Controller{
             $administrador_id = $_SESSION['administrador_id'];
             $constancias = ConstanciaDao::getByIdAdmin($administrador_id);
         
+            $tablaHead = '';
             $tabla= '';
             $status= '';
             $btn_qr ='';
-            $nnnn ='';
+
+        if($_SESSION['tipo'] == 3){
+            
+            $tablaHead.=<<<html
+
+            <tr> 
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Conference</th>         
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Download</th>
+            </tr>
+
+html;                
+        }else{
+            $tablaHead.=<<<html
+
+            <tr>     
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Download</th>
+            </tr>
+
+html;
+
+        }
+            
         foreach ($constancias as $key => $value) {
 
             if($value['generada'] == 0){
                 $btn_qr =<<<html
-                    <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"></span></button>
+                    <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 0px;"></span></button>
 html;
             }else{
                 $btn_qr = <<<html
                 <button  class="btn btn-outline-primary btn_ver" value="{$value['code']}" data-id="{$value['id_constancia']}"><span class="fa fa-qrcode"></span></button>
 html;
             }
-            
-            $tabla.=<<<html
-            <tr>
-           
-            <td><h6 class="mb-0 text-sm">{$value['nombre']}</h6></td>
-            
-            <style>
-                .btn_qr{
-                    padding: 0px;
-                }
-            </style>
-            <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
-            <td class="center" >
-                <!--<button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 10px;"> </span></button>-->
-                {$btn_qr}
-                <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
-                <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
-            </td>
-            </tr>
+
+            if($_SESSION['tipo'] == 3){
+
+                $name_conference = $value['nombre_conferencia'] <> '' ? $value['nombre_conferencia'] : 'does not apply';
+
+
+                $tabla.=<<<html
+                <tr>
+                <td><h6 class="mb-0 text-sm">{$name_conference}</h6></td>
+                <td><h6 class="mb-0 text-sm">{$value['nombre']}</h6></td>
+                <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
+                <td class="center" >
+                    
+                    {$btn_qr}
+                    <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
+                    <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
+                </td>
+                </tr>
 html;
+
+            }else{
+
+                $tabla.=<<<html
+                <tr>
+                <td><h6 class="mb-0 text-sm">{$value['nombre']}</h6></td>
+                <td><span class="text-secondary text-sm">{$value['fecha']}</span></td>
+                <td class="center" >
+                    <!--<button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 0px;"> </span></button>-->
+                    {$btn_qr}
+                    <a href="" class="btn btn-outline-success d-none btn_download" id="btn-download{$value['id_constancia']}"><span class="fa fa-download"> Certificate</span></a>  
+                    <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>           
+                </td>
+                </tr>
+html;
+            }
+            
+           
         }
     
-      View::set('nnnn',$nnnn);
+      
       View::set('header',$extraHeader);
       View::set('footer',$extraFooter);
       View::set('tabla',$tabla);
+      View::set('tablaHead',$tablaHead);
       //View::set('imagen_qr',$imagen);
       View::render("home");
     }

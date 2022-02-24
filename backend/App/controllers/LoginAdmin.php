@@ -167,6 +167,7 @@ html;
         $_SESSION['nombre'] = $user['nombre'];
         $_SESSION['apellido_p'] = $user['apellido_p'];
         $_SESSION['apellido_m'] = $user['apellido_m'];
+        $_SESSION['tipo'] = $user['tipo'];
         header("location: /Usuarios/");
     }
 

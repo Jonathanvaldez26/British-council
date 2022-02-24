@@ -203,8 +203,8 @@ html;
       </script>
       html;
       //speaker
-      $tipo = 3;
-      $usuarios = UsuarioDao::getUserWithoutConstancy($tipo);
+      //$tipo = 3;
+      $usuarios = UsuarioDao::getUserWithoutConstancySpeaker();
         $option = '';
       foreach ($usuarios as $key => $value) {
         $option .=<<<html

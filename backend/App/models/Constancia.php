@@ -76,7 +76,7 @@ class Constancia{
   public static function getByIdAdmin($user){
       $mysqli = Database::getInstance();
       $query=<<<sql
-      SELECT id_constancia, nombre, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_administrador = $user and status = '1';
+      SELECT id_constancia, nombre, nombre_conferencia, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_administrador = $user and status = '1';
       sql;
       return $mysqli->queryAll($query);
     }
@@ -96,7 +96,7 @@ class Constancia{
       c.ruta_qr,
       c.status
       FROM constancia AS c
-      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador WHERE ua.tipo IN (1,2) ORDER BY c.id_constancia;
+      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador and c.nombre_conferencia = '' ORDER BY c.id_constancia;
 sql;
       return $mysqli->queryAll($query);
     }
@@ -117,7 +117,7 @@ sql;
       c.ruta_qr,
       c.status
       FROM constancia AS c
-      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador WHERE ua.tipo = 3  ORDER BY c.id_constancia;
+      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador WHERE c.nombre_conferencia != ''  ORDER BY c.id_constancia;
 sql;
       return $mysqli->queryAll($query);
     }

@@ -72,13 +72,7 @@
                             <p>Check the information below, if all it is ok, download <br> your certificate, click at the button with the qr code.</p>
                             <table class="table align-items-center mb-0">
                                 <thead>
-                                <tr>
-                                   
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Name</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Download</th>
-                                   
-                                </tr>
+                                    <?php echo $tablaHead ?>
                                 </thead>
                                 <tbody>
                                     <?php echo $tabla; ?>
