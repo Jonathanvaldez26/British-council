@@ -140,7 +140,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                            <th></th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Validate / Download </th>
                         </tr>
                         </thead>
                         <tbody>
@@ -199,9 +199,8 @@
             
         });
 
-        $(".btn_status").on("click", function(event){
-            event.preventDefault();
-
+        $('table#constanciasAll').on("click","button.btn_status", function(event) {
+          event.preventDefault();
             var valueButton = $(this).attr('id');
             var code = $(this).attr('data-value-status');
             var id_constancia = $(this).attr('data-id-status');
@@ -229,7 +228,89 @@
                 }
 
             });
-
+        
         });
+
+        $('table#constanciasAll').on("click","button.btn_qr", function(event) {
+            event.preventDefault();
+
+            var valueButton = $(this).val();
+            $(this).hide();
+           
+            $.ajax({
+                url: "/Home/generaterQr",
+                type: "POST",
+                data: {id_constancia:valueButton},
+                cache: false,
+                dataType: "json",
+                // contentType: false,
+                // processData: false,
+                beforeSend: function() {
+                    console.log("Procesando....");
+
+                },
+                success: function(respuesta) {
+                    //console.log(respuesta);
+
+                    //boton descargar
+                   $("#btn-download"+valueButton).attr("data-id",respuesta.id_constancia);
+                   $("#btn-download"+valueButton).attr("data-value",respuesta.code);
+                   $("#btn-download"+valueButton).removeClass("d-none");
+                   $("#btn-download"+valueButton).attr("href", respuesta.ruta_constancia);                   
+                   //$("#btn-download"+valueButton).attr("target", "_blank");
+
+                   // a de descargar pdf
+                   $("#a-download"+valueButton).attr("href", respuesta.ruta_constancia); 
+                   $("#a-download"+valueButton).attr("download","");
+                 
+                },
+                error: function(respuesta) {
+                    console.log(respuesta);
+                }
+
+            });
+        });
+
+        // $('table#constanciasAll').on("click","button.btn_ver", function(event) {
+        //     event.preventDefault();
+
+        //     var valueButton = $(this).val();
+           
+        //     $.ajax({
+        //         url: "/Home/verQr",
+        //         type: "POST",
+        //         data: {code:valueButton},
+        //         cache: false,
+        //         dataType: "json",
+        //         // contentType: false,
+        //         // processData: false,
+        //         beforeSend: function() {
+        //             console.log("Procesando....");
+
+        //         },
+        //         success: function(respuesta) {
+        //             //console.log(respuesta);
+                   
+        //             //boton descargar
+        //            $("#btn-download"+respuesta.id_constancia).attr("data-id",respuesta.id_constancia);
+        //            $("#btn-download"+respuesta.id_constancia).attr("data-value",respuesta.code);
+        //            $("#btn-download"+respuesta.id_constancia).removeClass("d-none");
+        //            $("#btn-download"+respuesta.id_constancia).attr("href", respuesta.ruta_constancia);                   
+                   
+
+        //            // a de descargar pdf
+        //            $("#a-download"+respuesta.id_constancia).attr("href", respuesta.ruta_constancia); 
+        //            $("#a-download"+respuesta.id_constancia).attr("download","");
+                   
+                  
+        //         },
+        //         error: function(respuesta) {
+        //             console.log(respuesta);
+        //         }
+
+        //     });
+        // });
+
+        
     });
 </script>

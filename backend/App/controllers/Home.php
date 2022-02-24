@@ -236,7 +236,7 @@ html;
 
                 .spacer{
                     margin-left: 7px;
-                    padding-top: 400px!important;
+                    padding-top: 380px!important;
                     text-align: center;
             
                 }

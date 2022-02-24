@@ -143,7 +143,7 @@
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Second Surname</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
                             <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Type</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"></th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Edit
                         </tr>
                         </thead>
                         <tbody>

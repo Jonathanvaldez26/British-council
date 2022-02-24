@@ -1,6 +1,8 @@
 <?php
+
 namespace App\controllers;
-defined("APPPATH") OR die("Access denied");
+
+defined("APPPATH") or die("Access denied");
 //require dirname(__DIR__).'/../public/librerias/phpqrcode/qrlib.php';
 
 
@@ -9,29 +11,33 @@ use \Core\MasterDom;
 use \App\controllers\ContenedorAdmin;
 use \App\controllers\Mailer;
 use \Core\Controller;
-use \App\models\Constancia AS ConstanciaDao;
-use \App\models\Usuario AS UsuarioDao;
+use \App\models\Constancia as ConstanciaDao;
+use \App\models\Usuario as UsuarioDao;
 
 
-class AdminConstanciaSpeaker extends Controller{
+class AdminConstanciaSpeaker extends Controller
+{
 
 
-    private $_contenedor;
+  private $_contenedor;
 
-    function __construct(){
-        parent::__construct();
-        $this->_contenedor = new ContenedorAdmin;
-        View::set('header',$this->_contenedor->header());
-        View::set('footer',$this->_contenedor->footer());
-    }
+  function __construct()
+  {
+    parent::__construct();
+    $this->_contenedor = new ContenedorAdmin;
+    View::set('header', $this->_contenedor->header());
+    View::set('footer', $this->_contenedor->footer());
+  }
 
-    public function getUsuario(){
-      return $this->__usuario;
-    }
+  public function getUsuario()
+  {
+    return $this->__usuario;
+  }
 
-    public function index() {
+  public function index()
+  {
 
-      $extraFooter =<<<html
+    $extraFooter = <<<html
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
       <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer></script>
       <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
@@ -45,48 +51,45 @@ class AdminConstanciaSpeaker extends Controller{
         });
       </script>
 html;
-      
-      $usuarios = UsuarioDao::getAllSpeakers();
 
-      
-          $constancias = ConstanciaDao::getByIdConstSpeaker();
+    $usuarios = UsuarioDao::getAllSpeakers();
 
-          $tabla= '';
-          foreach ($constancias as $key => $value) {
-             
-            $status = $value['status'];
-            if($status == 1)
-            {
-              $status = 'Active';
-              $style = <<<html
+
+    $constancias = ConstanciaDao::getByIdConstSpeaker();
+
+    $tabla = '';
+    foreach ($constancias as $key => $value) {
+
+      $status = $value['status'];
+      if ($status == 1) {
+        $status = 'Active';
+        $style = <<<html
               <span class="badge badge-pill badge-primary">         
 html;
-              if ($value['code'] == '') {
-                $button_activate = <<<html
-                <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
-                <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>
+        if ($value['code'] == '') {
+          $button_activate = <<<html
+              <button  class="btn btn-outline-primary btn_qr" value="{$value['id_constancia']}"><span class="fa fa-qrcode" style="padding: 0px;"></span></button>
+              <!--<button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>-->
+              <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary d-none btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}" target="_blank"><span class="fa fa-download"></span></a>  
+              <a href="" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}">des</a>
 html;
-              } else {
-              $button_activate = <<<html
-                <!--<a href="/Accidentes/Edit/{$value['id_accidente']}" {$editarHidden} type="submit" name="id" class="btn btn-primary"><span class="fa fa-pencil-square-o" style="color:white"> edit</span> </a>-->
-                <button  class="btn btn-success btn_status" title="Activate" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}" disabled><span><i class="fa fa-check"></i></span></button>
-                <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary btn_download" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}"><span class="fa fa-download"></span></a>
-                <a href="{$value['ruta_constancia']}" class="btn btn-outline-success a_download d-none" id="a-download{$value['id_constancia']}" download>des</a>  
+        } else {
+          $button_activate = <<<html
+              <a href="{$value['ruta_constancia']}" title="Download" class="btn btn-primary" id="btn-download{$value['id_constancia']}" data-id="{$value['id_constancia']}" data-value="{$value['code']}" download><span class="fa fa-download"></span></a>
+  
 html;
-              }
-            }
-            else
-            {
-              $status = 'Inactive';
-              $style = <<<html
-              <span class="badge badge-pill badge-danger">         
+        }
+      } else {
+          $status = 'Inactive';
+          $style = <<<html
+            <span class="badge badge-pill badge-danger">         
 html;
-              $button_activate = <<<html
-              <button  class="btn btn-success btn_status" title="Activate Constancy" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
+        $button_activate = <<<html
+            <button  class="btn btn-success btn_status" title="Activate Constancy" value="{$value['id_constancia']}" data-id-status="{$value['id_constancia']}" data-value-status="{$value['code']}"><span><i class="fa fa-check"></i></span></button>
 html;
-            }
+      }
 
-              $tabla.=<<<html
+      $tabla .= <<<html
               
                   <tr>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']} {$value['apellido_p']} {$value['apellido_m']}</p></td>
@@ -101,18 +104,19 @@ html;
                       </td>
                   </tr>
   html;
-          }
-
-    
-      View::set('tabla',$tabla);
-      View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
-      View::set('footer',$this->_contenedor->footer($extraFooter));
-      View::render("constancias_all_speaker");
     }
 
-    public function Add(){
 
-      $extraFooter =<<<html
+    View::set('tabla', $tabla);
+    View::set('header', $this->_contenedor->header_constancy_speaker($extraHeader));
+    View::set('footer', $this->_contenedor->footer($extraFooter));
+    View::render("constancias_all_speaker");
+  }
+
+  public function Add()
+  {
+
+    $extraFooter = <<<html
       <script>
         $(document).ready(function(){
           $('#id_administrador').select2();
@@ -120,69 +124,67 @@ html;
         });//fin del document.ready
       </script>
       html;
-      //speaker
-      //$tipo = 3;
-      $usuarios = UsuarioDao::getUserWithoutConstancySpeaker();
-        $option = '';
-      foreach ($usuarios as $key => $value) {
-        $option .=<<<html
+    //speaker
+    //$tipo = 3;
+    $usuarios = UsuarioDao::getUserWithoutConstancySpeaker();
+    $option = '';
+    foreach ($usuarios as $key => $value) {
+      $option .= <<<html
         <option value="{$value['administrador_id']}">{$value['nombre']} {$value['apellido_m']} {$value['apellido_p']}</option>   
 html;
-      }
-
-
-
-      
-      View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
-      View::set('usuarios',$usuarios);
-      View::set('option',$option);
-      View::set('footer',$extraFooter);
-      View::render("constancias_add_speaker");
     }
 
-    public function constanciaAdd(){
-      $constancia = new \stdClass();
 
-      $id_administrador = MasterDom::getDataAll('id_administrador');
-      $id_administrador = MasterDom::procesoAcentosNormal($id_administrador);
-      $constancia->_id_administrador = $id_administrador;
 
-      $nombre = MasterDom::getDataAll('nombre');
-      $nombre = MasterDom::procesoAcentosNormal($nombre);
-      $constancia->_nombre = $nombre;
 
-      $code = MasterDom::getDataAll('code');
-      $code = MasterDom::procesoAcentosNormal($code);
-      $constancia->_code = $code;
+    View::set('header', $this->_contenedor->header_constancy_speaker($extraHeader));
+    View::set('usuarios', $usuarios);
+    View::set('option', $option);
+    View::set('footer', $extraFooter);
+    View::render("constancias_add_speaker");
+  }
 
-      $ruta_constancia = MasterDom::getDataAll('ruta_constancia');
-      $ruta_constancia = MasterDom::procesoAcentosNormal($ruta_constancia);
-      $constancia->_ruta_constancia = $ruta_constancia;
+  public function constanciaAdd()
+  {
+    $constancia = new \stdClass();
 
-      $ruta_qr = MasterDom::getDataAll('ruta_qr');
-      $ruta_qr = MasterDom::procesoAcentosNormal($ruta_qr);
-      $constancia->_ruta_qr = $ruta_qr;
+    $id_administrador = MasterDom::getDataAll('id_administrador');
+    $id_administrador = MasterDom::procesoAcentosNormal($id_administrador);
+    $constancia->_id_administrador = $id_administrador;
 
-      $nombre_conferencia = MasterDom::getDataAll('nombre_conferencia');
-      $nombre_conferencia = MasterDom::procesoAcentosNormal($nombre_conferencia);
-      $constancia->_nombre_conferencia = $nombre_conferencia;
+    $nombre = MasterDom::getDataAll('nombre');
+    $nombre = MasterDom::procesoAcentosNormal($nombre);
+    $constancia->_nombre = $nombre;
 
-      $constancias = ConstanciaDao::getByIdConst();
+    $code = MasterDom::getDataAll('code');
+    $code = MasterDom::procesoAcentosNormal($code);
+    $constancia->_code = $code;
 
-      $tabla= '';
-      foreach ($constancias as $key => $value) {
-          
-        $status = $value['status'];
-        if($status == 1)
-        {
-          $status = 'Activo';
-        }
-        else
-        {
-          $status = 'Inactivo';
-        }
+    $ruta_constancia = MasterDom::getDataAll('ruta_constancia');
+    $ruta_constancia = MasterDom::procesoAcentosNormal($ruta_constancia);
+    $constancia->_ruta_constancia = $ruta_constancia;
 
-          $tabla.=<<<html
+    $ruta_qr = MasterDom::getDataAll('ruta_qr');
+    $ruta_qr = MasterDom::procesoAcentosNormal($ruta_qr);
+    $constancia->_ruta_qr = $ruta_qr;
+
+    $nombre_conferencia = MasterDom::getDataAll('nombre_conferencia');
+    $nombre_conferencia = MasterDom::procesoAcentosNormal($nombre_conferencia);
+    $constancia->_nombre_conferencia = $nombre_conferencia;
+
+    $constancias = ConstanciaDao::getByIdConst();
+
+    $tabla = '';
+    foreach ($constancias as $key => $value) {
+
+      $status = $value['status'];
+      if ($status == 1) {
+        $status = 'Activo';
+      } else {
+        $status = 'Inactivo';
+      }
+
+      $tabla .= <<<html
               <tr>
                   
                   <td>{$value['nombre_user']}</td>
@@ -198,15 +200,15 @@ html;
                   </td>
               </tr>
   html;
-          }
+    }
 
 
-      
 
-      $id = ConstanciaDao::insertConstSpeaker($constancia);
-      if($id >= 1){
-        //$this->alerta($id,'add');
-        $alerta =<<<html
+
+    $id = ConstanciaDao::insertConstSpeaker($constancia);
+    if ($id >= 1) {
+      //$this->alerta($id,'add');
+      $alerta = <<<html
 
         <div class="alert alert-success alert-dismissible fade show" role="alert">
               <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
@@ -215,9 +217,9 @@ html;
                 Certificate has Generate
             </div>
 html;
-      }else{
-        //$this->alerta($id,'error');
-        $alerta =<<<html
+    } else {
+      //$this->alerta($id,'error');
+      $alerta = <<<html
 
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
           <button type="button" class="badge-danger close" data-dismiss="alert" aria-label="Close">
@@ -226,101 +228,100 @@ html;
             A problem has ocurred with the Certificate
         </div>
 html;
-      }
-
-      // View::set('alerta',$alerta);
-      // View::set('tabla',$tabla);
-      // View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
-      // View::set('footer',$this->_contenedor->footer($extraFooter));
-      // View::render("constancias_all");
-      header("location: /AdminConstanciaSpeaker/");
     }
 
-    public function alerta($id, $parametro){
-      $regreso = "/AdminConstancia/";
+    // View::set('alerta',$alerta);
+    // View::set('tabla',$tabla);
+    // View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
+    // View::set('footer',$this->_contenedor->footer($extraFooter));
+    // View::render("constancias_all");
+    header("location: /AdminConstanciaSpeaker/");
+  }
 
-      if($parametro == 'add'){
-        $mensaje = "Se ha agregado correctamente";
-        $class = "success";
-      }
+  public function alerta($id, $parametro)
+  {
+    $regreso = "/AdminConstancia/";
 
-      if($parametro == 'edit'){
-        $mensaje = "Se ha modificado correctamente";
-        $class = "success";
-      }
-
-      if($parametro == 'delete'){
-        $mensaje = "Se ha eliminado la empresa {$id}, ya que cambiaste el estatus a eliminado";
-        $class = "success";
-      }
-
-      if($parametro == 'nothing'){
-        $mensaje = "Posibles errores: <li>No intentaste actualizar ningún campo</li> <li>Este dato ya esta registrado, comunicate con soporte técnico</li> ";
-        $class = "warning";
-      }
-
-      if($parametro == 'no_cambios'){
-        $mensaje = "No intentaste actualizar ningún campo";
-        $class = "warning";
-      }
-
-      if($parametro == 'union'){
-        $mensaje = "Al parecer este campo de está ha sido enlazada con un campo de Catálogo de Colaboradores, ya que esta usuando esta información";
-        $class = "info";
-      }
-
-      if($parametro == "error"){
-        $mensaje = "Al parecer ha ocurrido un problema";
-        $class = "danger";
-      }
-
-
-      View::set('class',$class);
-      View::set('regreso',$regreso);
-      View::set('mensaje',$mensaje);
-      // View::set('header',$this->_contenedor->header($extraHeader));
-      // View::set('footer',$this->_contenedor->footer($extraFooter));
-      View::render("alerta");
+    if ($parametro == 'add') {
+      $mensaje = "Se ha agregado correctamente";
+      $class = "success";
     }
 
-    public function updateStatus(){
+    if ($parametro == 'edit') {
+      $mensaje = "Se ha modificado correctamente";
+      $class = "success";
+    }
 
-      $id_constancia = $_POST['id_constancia'];
-      
-      $documento = new \stdClass();
-      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($parametro == 'delete') {
+      $mensaje = "Se ha eliminado la empresa {$id}, ya que cambiaste el estatus a eliminado";
+      $class = "success";
+    }
 
-        //$documento->_status = $src;
-        $documento->_id_constancia = $id_constancia;
-        
-        
-        
-        $id = ConstanciaDao::updateStatus($documento);
+    if ($parametro == 'nothing') {
+      $mensaje = "Posibles errores: <li>No intentaste actualizar ningún campo</li> <li>Este dato ya esta registrado, comunicate con soporte técnico</li> ";
+      $class = "warning";
+    }
 
-        if ($id) {
-         
-            $data = [
-                'status' => 'success'
-            ];
-            //echo 'success';
+    if ($parametro == 'no_cambios') {
+      $mensaje = "No intentaste actualizar ningún campo";
+      $class = "warning";
+    }
 
-        } else {
-            $data = [
-                'status' => 'fail'
-                
-            ];
-            //echo 'fail';
-        }
-    } else {
+    if ($parametro == 'union') {
+      $mensaje = "Al parecer este campo de está ha sido enlazada con un campo de Catálogo de Colaboradores, ya que esta usuando esta información";
+      $class = "info";
+    }
+
+    if ($parametro == "error") {
+      $mensaje = "Al parecer ha ocurrido un problema";
+      $class = "danger";
+    }
+
+
+    View::set('class', $class);
+    View::set('regreso', $regreso);
+    View::set('mensaje', $mensaje);
+    // View::set('header',$this->_contenedor->header($extraHeader));
+    // View::set('footer',$this->_contenedor->footer($extraFooter));
+    View::render("alerta");
+  }
+
+  public function updateStatus()
+  {
+
+    $id_constancia = $_POST['id_constancia'];
+
+    $documento = new \stdClass();
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+      //$documento->_status = $src;
+      $documento->_id_constancia = $id_constancia;
+
+
+
+      $id = ConstanciaDao::updateStatus($documento);
+
+      if ($id) {
+
         $data = [
-            'status' => 'fail REQUEST'
-            
+          'status' => 'success'
         ];
-       
+        //echo 'success';
+
+      } else {
+        $data = [
+          'status' => 'fail'
+
+        ];
+        //echo 'fail';
+      }
+    } else {
+      $data = [
+        'status' => 'fail REQUEST'
+
+      ];
     }
- 
-     echo json_encode($data);
-    }
+
+    echo json_encode($data);
+  }
 }
-
-
