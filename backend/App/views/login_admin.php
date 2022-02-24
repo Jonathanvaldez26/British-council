@@ -10,7 +10,7 @@
                         <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
                             <div class="card card-plain mt-8">
                                 <div class="card-header pb-0 text-start">
-                                    <h3 class="font-weight-bolder text-primary text-gradient">GRUPO LAHE</h3>
+                                    <h3 class="font-weight-bolder text-dark text-gradient">BBELT 2022</h3>
                                     <p class="mb-0">Introduce tus credenciales para iniciar sesión.</p>
                                 </div>
                                 <div class="card-body">
@@ -25,7 +25,7 @@
                                         </div>
 
                                         <div class="text-center">
-                                            <button type="button" id="btnEntrar" class="btn bg-gradient-primary w-100 mt-4 mb-0">ENTRAR</button>
+                                            <button type="button" id="btnEntrar" class="btn bg-gradient-dark w-100 mt-4 mb-0">ENTRAR</button>
                                         </div>
                                     </form>
                                 </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="col-md-6">
                             <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('/assets/img/curved-images/fondo.jpg')"></div>
+                                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('/assets/img/curved-images/BBLT-01.png')"></div>
                             </div>
                         </div>
                     </div>
