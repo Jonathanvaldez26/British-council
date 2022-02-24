@@ -104,7 +104,7 @@
                       <div class="col-md-6">
                       <label class="form-label">Conference Name *</label>
                             <div class="input-group">
-                                <input id="nombre_conferencia" name="nombre_conferencia" class="form-control" maxlength="100" type="text" placeholder="Academic Record" value="" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
+                                <input id="nombre_conferencia" name="nombre_conferencia" class="form-control" maxlength="160" type="text" placeholder="Academic Record" value="" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
                             </div>
                       </div>
                     </div>
