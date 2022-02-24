@@ -45,7 +45,7 @@
     <footer class="footer py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 mx-auto text-center mb-0 mt-0">
+                <!-- <div class="col-lg-8 mx-auto text-center mb-0 mt-0">
                     <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
                         <span class="text-lg fab fa-facebook"></span>
                     </a>
@@ -55,7 +55,7 @@
                     <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
                         <span class="text-lg fab fa-instagram"></span>
                     </a>
-                </div>
+                </div> -->
             </div>
             <div class="row">
                 <div class="col-8 mx-auto text-center mt-0">
