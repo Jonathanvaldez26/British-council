@@ -164,6 +164,14 @@ $menu =<<<html
                 <span class="nav-link-text ms-1">Certificate</span>
              </a>
                </li>
+               <li class="">
+                <a style="margin: 0;" data-bs-toggle="" href="/AdminConstanciaSpeaker/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                    
+                    </div>
+                    <span class="nav-link-text ms-1">Certificate Speaker</span>
+                  </a>
+                </li>
                
                
          </ul>
@@ -288,9 +296,14 @@ html;
                 <span class="nav-link-text ms-1">Certificate</span>
               </a>
                </li>
-               <li>
-                
-               </li>
+               <li class="">
+                <a style="margin: 0;" data-bs-toggle="" href="/AdminConstanciaSpeaker/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                    
+                    </div>
+                    <span class="nav-link-text ms-1">Certificate Speaker</span>
+                  </a>
+                </li>
                
                
                
@@ -304,6 +317,141 @@ html;
  
      return $header.$extra.$menu;
      }
+
+     public function header_constancy_speaker($extra = ''){
+      $usuario = $this->__usuario;
+       
+      $header =<<<html
+         <!DOCTYPE html>
+         <html lang="en">
+         <head>
+         <meta charset="utf-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+         <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/icono_bbelt.png">
+         <link rel="icon" href="../../assets_2/img/icono_bbelt.png">
+         <title>
+            Users - British Council
+         </title>
+         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+         <!-- Nucleo Icons -->
+         <link href="../../assets/css/nucleo-icons.css" rel="stylesheet" />
+         <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- Font Awesome Icons -->
+         <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+         <link href="../../assets/css/nucleo-svg.css" rel="stylesheet" />
+         <!-- CSS Files -->
+         <link id="pagestyle" href="../../assets/css/soft-ui-dashboard.css?v=1.0.5" rel="stylesheet" />
+         <!-- TEMPLATE VIEJO-->
+         <link rel="stylesheet" href="/css/alertify/alertify.core.css" />
+         <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+         <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+         <link rel="stylesheet" href="/css/alertify/alertify.default.css" id="toggleCSS" />
+
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer ></script>
+        <link rel="stylesheet" href="http://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap4.min.css" />
+         
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+        <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer ></script>
+         <!-- TEMPLATE VIEJO-->
+     </head>
+ html;
+ $menu =<<<html
+ <body class="g-sidenav-show  bg-gray-100">
+   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
+     <div class="sidenav-header">
+       <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
+       <a class="navbar-brand m-0" href="/Principal/">
+         <img src="../../assets_2/img/icono_bbelt.png" class="navbar-brand-img h-100" alt="main_logo">
+         <span class="ms-1 font-weight-bold">British Council</span>
+       </a>
+     </div>
+     <hr class="horizontal dark mt-0">
+ 
+ 
+     <div class="collapse navbar-collapse  w-auto h-auto h-100" id="sidenav-collapse-main">
+       <ul class="navbar-nav">
+         <style>
+            #change:hover{
+              color: white; border-radius: 10px;
+              background-color: #aaa;
+              padding-right: 35px;
+              box-shadow: 0px 0px 10px black;
+            }
+            
+            #change{
+              border-radius: 10px;
+              padding-right: 35px;
+            }
+
+            #current-page{
+              color: white; border-radius: 10px;
+              box-shadow: 0px 0px 10px black;
+              margin-bottom: 4%;
+              padding-right: 35px;
+            }
+
+            #icon-page{
+              margin-right: 10%;
+              box-shadow: 0px 0px 10px #aaa;
+              border-radius: 10px;
+              padding: 10%;
+              background: white;
+              color: #aaa;
+            }
+         </style>
+         
+         <li class="nav-item mt-3">
+           <!--h6 class="ps-4  ms-2 text-uppercase text-xs font-weight-bolder opacity-6">CATÁLOGOS</h6 -->
+         </li>
+         <li class="nav-item">
+           <div class="" id="pagesExamples">
+             <ul class="nav ms-4 ps-3">
+                <li class="">
+                <a style="margin: 0;" data-bs-toggle="" href="/Usuarios/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                    
+                    </div>
+                    <span class="nav-link-text ms-1">Users</span>
+                  </a>
+                </li>
+                <li class="">
+                <a style="margin: 0;" data-bs-toggle="" href="/AdminConstancia/" class="nav-link " aria-controls="pagesExamples" role="button" aria-expanded="false">
+                    <div style="color: #24085E;" class="fa fa-user icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                    
+                    </div>
+                    <span class="nav-link-text ms-1">Certificate</span>
+                  </a>
+                </li>
+               <li class="m-0">
+               <a style="margin: 0;" data-bs-toggle="" href="/AdminConstanciaSpeaker/" class="nav-link active" aria-controls="dashboardsExamples" role="button" aria-expanded="false">
+                <div style="color: #fff;" class="fa fa-certificate icon icon-shape icon-sm shadow border-radius-md bg-white text-center d-flex align-items-center justify-content-center  me-2">
+                  
+                </div>
+                <span class="nav-link-text ms-1">Certificate Speaker</span>
+              </a>
+               </li>
+               
+               
+               
+               
+         </ul>
+     </div>
+    
+   </aside>
+   
+ </body>
+ html;
+ 
+     return $header.$extra.$menu;
+     }
+
+
 
     public function footer($extra = ''){
         $footer =<<<html

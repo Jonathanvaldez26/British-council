@@ -13,7 +13,7 @@ use \App\models\Constancia AS ConstanciaDao;
 use \App\models\Usuario AS UsuarioDao;
 
 
-class AdminConstancia extends Controller{
+class AdminConstanciaSpeaker extends Controller{
 
 
     private $_contenedor;
@@ -46,9 +46,10 @@ class AdminConstancia extends Controller{
       </script>
 html;
       
-      $usuarios = UsuarioDao::getAll();
+      $usuarios = UsuarioDao::getAllSpeakers();
+
       
-          $constancias = ConstanciaDao::getByIdConst();
+          $constancias = ConstanciaDao::getByIdConstSpeaker();
 
           $tabla= '';
           foreach ($constancias as $key => $value) {
@@ -89,6 +90,7 @@ html;
               
                   <tr>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre_user']} {$value['apellido_p']} {$value['apellido_m']}</p></td>
+                      <td><p class="text-sm text-secondary mb-0">{$value['nombre_conferencia']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['nombre']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$value['fecha']}</p></td>
                       <td><p class="text-sm text-secondary mb-0">{$style}$status</span></p></td>
@@ -103,9 +105,9 @@ html;
 
     
       View::set('tabla',$tabla);
-      View::set('header',$this->_contenedor->header_constancy($extraHeader));
+      View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
       View::set('footer',$this->_contenedor->footer($extraFooter));
-      View::render("constancias_all");
+      View::render("constancias_all_speaker");
     }
 
     public function Add(){
@@ -200,8 +202,8 @@ html;
         });//fin del document.ready
       </script>
       html;
-      //usuario
-      $tipo = 1;
+      //speaker
+      $tipo = 3;
       $usuarios = UsuarioDao::getUserWithoutConstancy($tipo);
         $option = '';
       foreach ($usuarios as $key => $value) {
@@ -213,11 +215,11 @@ html;
 
 
       
-      View::set('header',$this->_contenedor->header_constancy($extraHeader));
+      View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
       View::set('usuarios',$usuarios);
       View::set('option',$option);
       View::set('footer',$extraFooter);
-      View::render("constancias_add");
+      View::render("constancias_add_speaker");
     }
 
     public function constanciaAdd(){
@@ -243,6 +245,10 @@ html;
       $ruta_qr = MasterDom::procesoAcentosNormal($ruta_qr);
       $constancia->_ruta_qr = $ruta_qr;
 
+      $nombre_conferencia = MasterDom::getDataAll('nombre_conferencia');
+      $nombre_conferencia = MasterDom::procesoAcentosNormal($nombre_conferencia);
+      $constancia->_nombre_conferencia = $nombre_conferencia;
+
       $constancias = ConstanciaDao::getByIdConst();
 
       $tabla= '';
@@ -262,6 +268,7 @@ html;
               <tr>
                   
                   <td>{$value['nombre_user']}</td>
+                  <td>>{$value['nombre_conferencia']}</td>
                   <td>{$value['nombre']}</td>
                   <td>{$value['fecha']}</td>
                   <td>$status</td>
@@ -278,7 +285,7 @@ html;
 
       
 
-      $id = ConstanciaDao::insert($constancia);
+      $id = ConstanciaDao::insertConstSpeaker($constancia);
       if($id >= 1){
         //$this->alerta($id,'add');
         $alerta =<<<html
@@ -305,10 +312,10 @@ html;
 
       // View::set('alerta',$alerta);
       // View::set('tabla',$tabla);
-      // View::set('header',$this->_contenedor->header_constancy($extraHeader));
+      // View::set('header',$this->_contenedor->header_constancy_speaker($extraHeader));
       // View::set('footer',$this->_contenedor->footer($extraFooter));
       // View::render("constancias_all");
-      header("location: /AdminConstancia/");
+      header("location: /AdminConstanciaSpeaker/");
     }
 
     public function alerta($id, $parametro){

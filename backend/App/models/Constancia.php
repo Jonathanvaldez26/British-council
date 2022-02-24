@@ -15,10 +15,18 @@ class Constancia{
     return $mysqli->queryAll($query);
   }
 
+  public static function getAllSpeakers(){
+    $mysqli = Database::getInstance();
+    $query=<<<sql
+    SELECT administrador_id, nombre, apellido_p, apellido_m, usuario, tipo, status FROM utilerias_administradores WHERE tipo = 3 ORDER BY administrador_id ASC;
+    sql;
+    return $mysqli->queryAll($query);
+  }
+
   public static function insert($empresa){
     $mysqli = Database::getInstance(1);
     $query=<<<sql
-      INSERT INTO constancia VALUES(null, :id_administrador, :code, :nombre, NOW(), :ruta_constancia, :ruta_qr, 0, 0)
+      INSERT INTO constancia VALUES(null, :id_administrador, :code, :nombre,'',NOW(), :ruta_constancia, :ruta_qr, 0, 0)
     sql;
 
     $parametros = array(
@@ -26,6 +34,31 @@ class Constancia{
       ':code'=>$empresa->_code,
       ':nombre'=>$empresa->_nombre,
       // ':fecha'=>$empresa->_fecha,
+      'ruta_constancia'=>$empresa->_ruta_constancia,
+      'ruta_qr'=>$empresa->_ruta_qr,
+      // 'status'=>$empresa->_status
+    );
+
+    $id = $mysqli->insert($query,$parametros);
+    $accion = new \stdClass();
+    $accion->_sql= $query;
+    $accion->_parametros = $parametros;
+    $accion->_id = $id;
+
+    return $id;
+  }
+
+  public static function insertConstSpeaker($empresa){
+    $mysqli = Database::getInstance(1);
+    $query=<<<sql
+      INSERT INTO constancia VALUES(null, :id_administrador, :code, :nombre, :nombre_conferencia ,NOW(), :ruta_constancia, :ruta_qr, 0, 0)
+    sql;
+
+    $parametros = array(
+      ':id_administrador'=>$empresa->_id_administrador,
+      ':code'=>$empresa->_code,
+      ':nombre'=>$empresa->_nombre,
+      ':nombre_conferencia'=>$empresa->_nombre_conferencia,
       'ruta_constancia'=>$empresa->_ruta_constancia,
       'ruta_qr'=>$empresa->_ruta_qr,
       // 'status'=>$empresa->_status
@@ -63,7 +96,28 @@ class Constancia{
       c.ruta_qr,
       c.status
       FROM constancia AS c
-      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador ORDER BY c.id_constancia;
+      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador WHERE ua.tipo IN (1,2) ORDER BY c.id_constancia;
+sql;
+      return $mysqli->queryAll($query);
+    }
+
+    public static function getByIdConstSpeaker(){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT
+      c.id_constancia,
+      ua.nombre As nombre_user,
+      ua.apellido_p,
+      ua.apellido_m,
+      c.code,
+      c.nombre,
+      c.nombre_conferencia,
+      c.fecha,
+      c.ruta_constancia,
+      c.ruta_qr,
+      c.status
+      FROM constancia AS c
+      INNER JOIN utilerias_administradores ua ON ua.administrador_id = c.id_administrador WHERE ua.tipo = 3  ORDER BY c.id_constancia;
 sql;
       return $mysqli->queryAll($query);
     }
@@ -71,7 +125,7 @@ sql;
     public static function getByCode($code){
       $mysqli = Database::getInstance();
       $query=<<<sql
-SELECT c.id_constancia, c.nombre as nombre_constancia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, c.generada, ua.nombre, ua.apellido_p, ua.apellido_m, ua.usuario
+SELECT c.id_constancia, c.nombre as nombre_constancia, c.nombre_conferencia, c.fecha, c.ruta_qr, c.code, c.ruta_constancia, c.generada, ua.nombre, ua.apellido_p, ua.apellido_m, ua.usuario
 FROM constancia c 
 INNER JOIN utilerias_administradores ua ON (ua.administrador_id = c.id_administrador)
 WHERE c.code = '$code';

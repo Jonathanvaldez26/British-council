@@ -165,43 +165,80 @@ html;
       $mpdf->h2toc = array('H5'=>0,'H6'=>1);
       $mpdf->SetDefaultBodyCSS('background', "url('/PDF/template/Certificados_Delegate.png')");
         $mpdf->SetDefaultBodyCSS('background-image-resize', 6);
-      $style =<<<html
-      <style>
-     
-        .titulo{
-          width:100%;
-          margin-top: 30px;
-          color: #F5AA3C;
-          margin-left:auto;
-          margin-right:auto;
-        }
 
-        .imagen{
+      if(!empty($data['nombre_conferencia'])){
+        $style =<<<html
+            <style>
+            
+                .titulo{
+                width:100%;
+                margin-top: 30px;
+                color: #F5AA3C;
+                margin-left:auto;
+                margin-right:auto;
+                }
 
-            float: left;	
-            margin-top: 325px;
-            width: 100px;
-            height: 100px;
-        }
+                .imagen{
 
-        .spacer{
-            margin-left: 7px;
-            padding-top: 450px!important;
-            text-align: center;
-    
-        }
-        .name{
-            font-family: Arial, Helvetica, sans-serif;
-            color: #4B3049;
-        }
+                    float: left;	
+                    margin-top: 325px;
+                    width: 100px;
+                    height: 100px;
+                }
 
-      </style>
+                .spacer{
+                    margin-left: 7px;
+                    padding-top: 400px!important;
+                    text-align: center;
+            
+                }
+                .name{
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #4B3049;
+                }
+
+            </style>
 html;
+      }else{
+        $style =<<<html
+            <style>
+        
+            .titulo{
+                width:100%;
+                margin-top: 30px;
+                color: #F5AA3C;
+                margin-left:auto;
+                margin-right:auto;
+            }
+    
+            .imagen{
+    
+                float: left;	
+                margin-top: 325px;
+                width: 100px;
+                height: 100px;
+            }
+    
+            .spacer{
+                margin-left: 7px;
+                padding-top: 450px!important;
+                text-align: center;
+        
+            }
+            .name{
+                font-family: Arial, Helvetica, sans-serif;
+                color: #4B3049;
+            }
+    
+            </style>
+  html;
+      }
+     
 
 $tabla =<<<html
 
 <div style="page-break-inside: avoid;" class='spacer' align='center'>
-
+<h1 class='name'>{$data['nombre_conferencia']}</h1>
 <h1 class='name'>{$data['nombre']} {$data['apellido_p']} {$data['apellido_m']}</h1>
 <img class="imagen " src="{$data['ruta_qr']}"/>
 </div>
