@@ -226,6 +226,14 @@ html;
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer ></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+        <style>
+        .select2-container--default .select2-selection--single {
+          height: 40px!important;
+          border-radius: 8px!important;
+          }
+        </style>
          <!-- TEMPLATE VIEJO-->
      </head>
  html;
@@ -358,6 +366,15 @@ html;
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
         <script src = "http://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js" defer ></script>
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+        <style>
+        .select2-container--default .select2-selection--single {
+          height: 40px!important;
+          border-radius: 8px!important;
+          }
+        </style>
          <!-- TEMPLATE VIEJO-->
      </head>
  html;

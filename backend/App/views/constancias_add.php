@@ -93,6 +93,7 @@
                                 <input id="nombre" name="nombre" class="form-control" maxlength="44" type="text" placeholder="Academic Record" value="British Council 2022" required="required" onfocus="focused(this)" onfocusout="defocused(this)">
                             </div>
                         </div>
+  
                         <!-- <div class="form-group col-6">
                             <label class="form-label">Code *</label>
                             <div class="input-group">
