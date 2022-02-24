@@ -108,17 +108,18 @@
                     </div>
                     
 
-                    <!-- <div class="form-group row">
+                    <div class="form-group row">
                         <div class="col-6">
                             <label class="form-label mt-4">User Type</label>
                             <div class="input-group text-uppercase">
                                <select class="form-control text-uppercase" id="tipo" name="tipo">
                                    <option class="text-uppercase" value="1">Standar User</option>
                                    <option class="text-uppercase" value="2">Admin</option>
+                                   <option class="text-uppercase" value="3">Speaker</option>
                                </select>
                             </div>
                         </div>
-                        <div class="col-6">
+                       <!--  <div class="col-6">
                             <label class="form-label mt-4">Password *</label>
                             <div class="input-group">
                                 <input id="contrasena" name="contrasena" maxlength="250" class="form-control" type="password" placeholder="********" onfocus="focused(this)" onfocusout="defocused(this)">
