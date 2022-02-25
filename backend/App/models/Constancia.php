@@ -81,6 +81,14 @@ class Constancia{
       return $mysqli->queryAll($query);
     }
 
+    public static function getConstById($id_constancia){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      SELECT id_constancia, nombre, nombre_conferencia, fecha, code, ruta_qr, ruta_constancia, generada FROM constancia where id_constancia = $id_constancia;
+      sql;
+      return $mysqli->queryAll($query);
+    }
+
     public static function getByIdConst(){
       $mysqli = Database::getInstance();
       $query=<<<sql
@@ -185,6 +193,42 @@ sql;
       $accion = new \stdClass();
       $accion->_sql= $query;
       $accion->_parametros = $parametros;
+     
+    return $mysqli->update($query, $parametros);
+    }
+
+    public static function delete($id){
+      $mysqli = Database::getInstance();
+      $query=<<<sql
+      DELETE FROM constancia WHERE id_administrador = $id
+sql;
+      $accion = new \stdClass();
+      $accion->_sql= $query;
+      $accion->_id = $id;
+      
+      return $mysqli->update($query);
+    }
+
+    public static function logicDelete($constancia){
+
+      $mysqli = Database::getInstance(true);
+      $query=<<<sql
+      UPDATE constancia SET
+      code = '',
+      ruta_constancia = '',
+      ruta_qr = '',
+      generada = 0     
+      WHERE id_constancia = :id_constancia
+sql;
+        $parametros = array(
+            ':id_constancia' => $constancia->_id_constancia
+        );
+
+      $accion = new \stdClass();
+      $accion->_sql= $query;
+      $accion->_parametros = $parametros;
+
+      
      
     return $mysqli->update($query, $parametros);
     }

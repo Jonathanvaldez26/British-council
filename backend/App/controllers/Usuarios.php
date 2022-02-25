@@ -5,6 +5,7 @@ defined("APPPATH") OR die("Access denied");
 use \Core\View;
 use \Core\MasterDom;
 use \App\controllers\ContenedorAdmin;
+use App\models\Constancia As ConstanciaDao;
 use \Core\Controller;
 use \App\models\Usuario AS UsuarioDao;
 //use \App\models\Empresa AS EmpresaDao;
@@ -649,6 +650,22 @@ html;
       //$administrador_id = MasterDom::procesoAcentosNormal($administrador_id);
       $usuario->_administrador_id = $administrador_id;
 
+      
+
+      $constancias_user = ConstanciaDao::getByIdAdmin($administrador_id);
+
+      //var_dump($constancias_user);
+      
+      foreach ($constancias_user as $key => $value) {
+          $id_constancia = $value['id_constancia'];
+        
+        // //Datos para actualizar la constancia
+          $this->deleteFiles($id_constancia);
+          $constancia = new \stdClass();
+          $constancia->_id_constancia  = $id_constancia;
+          $id = ConstanciaDao::logicDelete($constancia);
+          
+      }
 
       $id = UsuarioDao::update($usuario);
 
@@ -743,30 +760,26 @@ html;
       }
     }
 
-    public function validarRFC(){
-      $dato = EmpresaDao::getRFC($_POST['rfc']);
-      if($dato == 1){
-        echo "true";
-      }else{
-        echo "false";
-      }
-    }
+    public function deleteFiles($id_constancia){
+      $constancia = ConstanciaDao::getConstById($id_constancia)[0];
 
-    public function validarOtroRFC(){
-      $id = EmpresaDao::getIdComparacion($_POST['id'], $_POST['nombre']);
-      if($id == 1)
-        echo "true";
+      $split_ruta_qr = explode("/",$constancia['ruta_qr']);
+      $ruta_qr = $split_ruta_qr['1']."/".$split_ruta_qr['2'];
 
-      if($id == 2){
-        $dato = EmpresaDao::getNombreEmpresa($_POST['nombre']);
-        if($dato == 2){
-          echo "true";
-        }else{
-          echo "false";
-        }
-      }
+      $split_ruta_pdf = explode("/",$constancia['ruta_constancia']);
+      $ruta_pdf = $split_ruta_pdf['1']."/".$split_ruta_pdf['2'];
+      
+      if (file_exists($ruta_qr)) {
+          //echo "El fichero ". $constancia['ruta_qr']." existe";
+          unlink($ruta_qr);
+      } 
 
-    }
+      if (file_exists($ruta_pdf)) {
+          //echo "El fichero ". $constancia['ruta_constancia']." existe";
+          unlink($ruta_pdf);
+      } 
+     
+  }
 
     public function generarPDF(){
       $ids = MasterDom::getDataAll('borrar');
