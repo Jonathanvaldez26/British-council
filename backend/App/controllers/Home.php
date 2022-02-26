@@ -211,10 +211,16 @@ html;
       $mpdf=new \mPDF('c');
       $mpdf->defaultPageNumStyle = 'I';
       $mpdf->h2toc = array('H5'=>0,'H6'=>1);
-      $mpdf->SetDefaultBodyCSS('background', "url('/PDF/template/Certificados_Delegate.png')");
-        $mpdf->SetDefaultBodyCSS('background-image-resize', 6);
+     
 
       if(!empty($data['nombre_conferencia'])){
+        $mpdf->SetDefaultBodyCSS('background', "url('/PDF/template/Certificados_Speaker.png')");  
+        $length_name_conference = strlen($data['nombre_conferencia']);
+        if($length_name_conference > 80){
+            $margin_top_qr = '150px';
+        }else{
+            $margin_top_qr = '210px';
+        }
         $style =<<<html
             <style>
             
@@ -229,14 +235,14 @@ html;
                 .imagen{
 
                     float: left;	
-                    margin-top: 325px;
+                    margin-top: {$margin_top_qr};
                     width: 100px;
                     height: 100px;
                 }
 
                 .spacer{
                     margin-left: 7px;
-                    padding-top: 380px!important;
+                    padding-top: 320px!important;
                     text-align: center;
             
                 }
@@ -244,10 +250,26 @@ html;
                     font-family: Arial, Helvetica, sans-serif;
                     color: #4B3049;
                 }
+                .name_user{
+                    margin-top:120px!important;
+                }
+
+                .name_constancy{
+                    margin-top:70px!important;
+                }
 
             </style>
 html;
+            $tabla =<<<html
+
+                <div style="page-break-inside: avoid;" class='spacer' align='center'>
+                <h1 class='name name_user'>{$data['nombre']} {$data['apellido_p']} {$data['apellido_m']}</h1>
+                <h1 class='name name_constancy'>{$data['nombre_conferencia']}</h1>
+                <img class="imagen " src="{$data['ruta_qr']}"/>
+                </div>
+html;
       }else{
+        $mpdf->SetDefaultBodyCSS('background', "url('/PDF/template/Certificados_Delegate.png')");
         $style =<<<html
             <style>
         
@@ -280,19 +302,16 @@ html;
     
             </style>
   html;
-      }
-     
 
-$tabla =<<<html
-
-<div style="page-break-inside: avoid;" class='spacer' align='center'>
-<h1 class='name'>{$data['nombre_conferencia']}</h1>
-<h1 class='name'>{$data['nombre']} {$data['apellido_p']} {$data['apellido_m']}</h1>
-<img class="imagen " src="{$data['ruta_qr']}"/>
-</div>
-
-
+            $tabla =<<<html
+            <div style="page-break-inside: avoid;" class='spacer' align='center'>
+            <h1 class='name'>{$data['nombre']} {$data['apellido_p']} {$data['apellido_m']}</h1>
+            <img class="imagen " src="{$data['ruta_qr']}"/>
+            </div>
 html;
+      }
+  
+      $mpdf->SetDefaultBodyCSS('background-image-resize', 6);
       $mpdf->WriteHTML($style,1);
       $mpdf->WriteHTML($tabla,2);
 
